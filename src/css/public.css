@@ -1,0 +1,27 @@
+:root {
+  background-color: #f4f6f8;
+  --bg-gray: #abb0ba;
+  --bg-blue: #007aff;
+}
+
+* {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* footer {
+  position: sticky;
+  width: 100%;
+  bottom: 0;
+
+  align-items: center;
+  justify-content: center;
+  background-color: #002fff;
+} */
