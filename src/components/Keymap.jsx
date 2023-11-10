@@ -7,9 +7,7 @@ export const Keymap = () => {
   const [pressedKeys, setPressedKeys] = useState(new Set());
   const [capsLockPressed, setCapsLockPressed] = useState(false);
 
-  const isAlphabetic = (char) => {
-    return /^[a-zA-Z]$/.test(char);
-  };
+  const isAlphabetic = (char) => /^[a-zA-Z]$/.test(char);
 
   const determineKeyToDisplay = (pressedKey, event) => {
     if (capsLockActive || capsLockPressed) {
@@ -48,40 +46,78 @@ export const Keymap = () => {
     }
   };
 
+  const handleCapsLock = (key, isKeyDown) => {
+    if (key === "CapsLock") {
+      setCapsLockActive((prev) => (isKeyDown ? !prev : prev));
+      setCapsLockPressed((prev) => (isKeyDown ? !prev : prev));
+      setShowCapsLock(isKeyDown);
+      handleKeyUpdate(isKeyDown, "Caps Lock");
+    }
+  };
+
+  const handleToggleKey = (key, currentKey, event) => {
+    if (currentKey === key && !pressedKeys.has(key)) {
+      handleKeyUpdate(true, key);
+    } else if (currentKey !== key && pressedKeys.has(key)) {
+      handleRemoveKey(key);
+    }
+  };
+
+  const handleKeyUpdate = (isKeyDown, key) => {
+    if (isKeyDown && isAlphabetic(key)) {
+      handleSetPressedKeys(key);
+    } else {
+      handleRemoveKey(key);
+      // 캡스락 키를 눌렀을 때도 pressedKeys에 추가되어 있는 경우를 처리
+      if (capsLockActive || capsLockPressed) {
+        handleRemoveKey(determineKeyToDisplay(key));
+      }
+    }
+  };
+
   const handleKeyDown = (event) => {
     const pressedKey = event.key;
 
-    if (pressedKey === "CapsLock" && !capsLockActive) {
-      setCapsLockActive(true);
-      setShowCapsLock(true);
-    }
+    // 캡스락 대소문자 변환
+    handleCapsLock(pressedKey, true);
 
-    const keyToDisplay = determineKeyToDisplay(pressedKey, event);
+    // 탭 키에 대한 토글 처리
+    handleToggleKey("Tab", pressedKey, event);
 
-    setPressedKeys((prevKeys) => new Set(prevKeys).add(keyToDisplay));
-
-    if (
-      (capsLockActive || event.getModifierState("Shift")) &&
-      isAlphabetic(pressedKey)
-    ) {
-      setPressedKeys((prevKeys) =>
-        new Set(prevKeys).add(pressedKey.toUpperCase())
-      );
+    // 나머지 키 처리
+    if (pressedKey !== "Tab") {
+      const keyToDisplay = determineKeyToDisplay(pressedKey, event);
+      handleKeyUpdate(true, keyToDisplay);
+      if (
+        (capsLockActive || event.getModifierState("Shift")) &&
+        isAlphabetic(pressedKey)
+      ) {
+        handleKeyUpdate(true, pressedKey.toUpperCase());
+      }
     }
   };
 
   const handleKeyUp = (event) => {
     const releasedKey = event.key;
 
-    if (releasedKey === "CapsLock") {
-      setCapsLockActive((prev) => !prev);
-      setCapsLockPressed((prev) => !prev);
-      setShowCapsLock(false);
-    }
+    // 캡스락 키 및 탭 키에 대한 처리
+    handleCapsLock(releasedKey, false);
+    handleToggleKey("Tab", releasedKey, event);
 
+    // 나머지 키 처리
+    if (releasedKey !== "Tab") {
+      handleKeyUpdate(false, determineKeyToDisplay(releasedKey, event));
+    }
+  };
+
+  const handleSetPressedKeys = (key) => {
+    setPressedKeys((prevKeys) => new Set(prevKeys).add(key));
+  };
+
+  const handleRemoveKey = (key) => {
     setPressedKeys((prevKeys) => {
       const updatedKeys = new Set(prevKeys);
-      updatedKeys.delete(releasedKey);
+      updatedKeys.delete(key);
       return updatedKeys;
     });
   };

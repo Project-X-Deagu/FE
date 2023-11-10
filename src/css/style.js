@@ -29,7 +29,7 @@ export const TextBoxArea = styled.div`
 `;
 
 export const KeymapContainer = styled.div`
-  background-color: var(--bg-blue);
+  //background-color: var(--bg-blue);
   width: 100%;
   height: 350px;
   display: flex;

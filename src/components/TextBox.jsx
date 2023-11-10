@@ -8,11 +8,13 @@ const StyledTextArea = styled.textarea`
   height: auto;
   resize: none;
   background-color: transparent;
-  border-color: black;
+  border: none;
+  //border-color: black;
   border-radius: 4px;
   outline: none;
   margin: 0 auto;
   font-size: 20px;
+  //white-space: pre-wrap;
 `;
 
 export const TextBox = ({ onKeyPress }) => {
@@ -27,6 +29,31 @@ export const TextBox = ({ onKeyPress }) => {
 
   const handleKeyDown = (e) => {
     onKeyPress(e.key);
+
+    if (e.key === "Tab") {
+      e.preventDefault();
+
+      const cursorPosition = e.target.selectionStart;
+      const selectionEnd = e.target.selectionEnd;
+
+      const textBeforeCursor = text.substring(0, cursorPosition);
+      const textAfterCursor = text.substring(selectionEnd);
+
+      // Calculate the number of spaces needed to reach the next 4-column boundary
+      const spacesNeeded = 4 - (cursorPosition % 4);
+
+      // Insert spaces at the cursor position
+      const indentedText =
+        textBeforeCursor + " ".repeat(spacesNeeded) + textAfterCursor;
+
+      setText(indentedText);
+
+      // Set selection range to the end of the inserted spaces
+      e.target.setSelectionRange(
+        cursorPosition + spacesNeeded,
+        cursorPosition + spacesNeeded
+      );
+    }
   };
 
   return (
@@ -35,7 +62,7 @@ export const TextBox = ({ onKeyPress }) => {
         value={text}
         onChange={handleInputChange}
         onKeyDown={handleKeyDown}
-        rows={1}
+        // rows={1} // 한 줄로 인식하도록 설정
         autoFocus
       />
     </div>

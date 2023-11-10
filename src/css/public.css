@@ -4,12 +4,19 @@
   --bg-blue: #007aff;
 }
 
-* {
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+
+body {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   scrollbar-width: none;
+  /*background: url("../../public/wallpaper.png") round;*/
 }
 
 ::-webkit-scrollbar {
