@@ -2,17 +2,83 @@ import React, { useState, useEffect } from "react";
 import "../css/KeyboardLayout.css";
 
 export const Keymap = () => {
+  const [capsLockActive, setCapsLockActive] = useState(false);
+  const [showCapsLock, setShowCapsLock] = useState(false);
   const [pressedKeys, setPressedKeys] = useState(new Set());
+  const [capsLockPressed, setCapsLockPressed] = useState(false);
 
-  // 키 다운 이벤트 핸들러
-  const handleKeyDown = (event) => {
-    const pressedKey = event.key;
-    setPressedKeys((prevKeys) => new Set(prevKeys).add(pressedKey));
+  const isAlphabetic = (char) => {
+    return /^[a-zA-Z]$/.test(char);
   };
 
-  // 키 업 이벤트 핸들러
+  const determineKeyToDisplay = (pressedKey, event) => {
+    if (capsLockActive || capsLockPressed) {
+      if (isAlphabetic(pressedKey)) {
+        return event.nativeEvent.getModifierState("Shift")
+          ? pressedKey.toLowerCase()
+          : pressedKey.toUpperCase();
+      } else {
+        const shiftedSpecialChars = {
+          1: "!",
+          2: "@",
+          3: "#",
+          4: "$",
+          5: "%",
+          6: "^",
+          7: "&",
+          8: "*",
+          9: "(",
+          0: ")",
+          "-": "_",
+          "=": "+",
+          "`": "~",
+          "[": "{",
+          "]": "}",
+          "\\": "|",
+          ";": ":",
+          "'": '"',
+          ",": "<",
+          ".": ">",
+          "/": "?",
+        };
+        return shiftedSpecialChars[pressedKey] || pressedKey;
+      }
+    } else {
+      return pressedKey;
+    }
+  };
+
+  const handleKeyDown = (event) => {
+    const pressedKey = event.key;
+
+    if (pressedKey === "CapsLock" && !capsLockActive) {
+      setCapsLockActive(true);
+      setShowCapsLock(true);
+    }
+
+    const keyToDisplay = determineKeyToDisplay(pressedKey, event);
+
+    setPressedKeys((prevKeys) => new Set(prevKeys).add(keyToDisplay));
+
+    if (
+      (capsLockActive || event.getModifierState("Shift")) &&
+      isAlphabetic(pressedKey)
+    ) {
+      setPressedKeys((prevKeys) =>
+        new Set(prevKeys).add(pressedKey.toUpperCase())
+      );
+    }
+  };
+
   const handleKeyUp = (event) => {
     const releasedKey = event.key;
+
+    if (releasedKey === "CapsLock") {
+      setCapsLockActive((prev) => !prev);
+      setCapsLockPressed((prev) => !prev);
+      setShowCapsLock(false);
+    }
+
     setPressedKeys((prevKeys) => {
       const updatedKeys = new Set(prevKeys);
       updatedKeys.delete(releasedKey);
@@ -20,12 +86,10 @@ export const Keymap = () => {
     });
   };
 
-  // 컴포넌트가 마운트될 때 이벤트 리스너 등록
   useEffect(() => {
     document.addEventListener("keydown", handleKeyDown);
     document.addEventListener("keyup", handleKeyUp);
 
-    // 컴포넌트가 언마운트될 때 이벤트 리스너 해제
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
       document.removeEventListener("keyup", handleKeyUp);
@@ -130,7 +194,7 @@ export const Keymap = () => {
       <div className="keyboard-row">
         <div
           className={`keyboard-key ${
-            pressedKeys.has("Caps Lock") && "pressed"
+            capsLockPressed || capsLockActive ? "pressed" : ""
           }`}
         >
           Caps Lock
@@ -217,21 +281,23 @@ export const Keymap = () => {
         </div>
       </div>
       <div className="keyboard-row">
-        <div className={`keyboard-key ${pressedKeys.has("Ctrl") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${pressedKeys.has("Control") && "pressed"}`}
+        >
           Ctrl
         </div>
         <div className={`keyboard-key ${pressedKeys.has("Alt") && "pressed"}`}>
           Alt
         </div>
-        <div
-          className={`keyboard-key ${pressedKeys.has("Spacebar") && "pressed"}`}
-        >
-          Spacebar
+        <div className={`keyboard-key ${pressedKeys.has(" ") && "pressed"}`}>
+          Space
         </div>
         <div className={`keyboard-key ${pressedKeys.has("Alt") && "pressed"}`}>
           Alt
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("Ctrl") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${pressedKeys.has("Control") && "pressed"}`}
+        >
           Ctrl
         </div>
       </div>
