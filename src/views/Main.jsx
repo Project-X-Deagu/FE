@@ -21,7 +21,7 @@ export const Main = () => {
     <div>
       {/* 상단 로고 */}
       <LogoArea>
-        <Logo></Logo>
+        <Logo />
       </LogoArea>
       {/* 인풋 창 */}
       <TextBoxArea>

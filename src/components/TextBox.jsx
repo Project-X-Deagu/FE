@@ -2,19 +2,23 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const StyledTextArea = styled.textarea`
-  width: 100%;
-  min-height: 300px;
+export const StyledTextArea = styled.textarea`
+  background-color: white;
+  //background-color: transparent;
+  width: 100%; /* 뷰포트 너비를 기준으로 100%로 설정 */
+  min-width: 200px;
+  max-width: 750px;
+  min-height: 300px; /* 최소 높이를 설정 */
   height: auto;
-  resize: none;
-  background-color: transparent;
-  border: none;
-  //border-color: black;
-  border-radius: 4px;
+  resize: none; /* 사용자 조절 비활성화 */
+  //border: none;
+  border-color: var(--bg-gray);
+  border-width: 2px;
+  border-radius: 15px;
   outline: none;
   margin: 0 auto;
+  padding: 10px;
   font-size: 20px;
-  //white-space: pre-wrap;
 `;
 
 export const TextBox = ({ onKeyPress }) => {

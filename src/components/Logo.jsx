@@ -6,5 +6,10 @@ export const Logo = () => {
     window.location.reload();
   };
 
-  return <div onClick={handleLogoClick}>DODODOC</div>;
+  return (
+    <div onClick={handleLogoClick}>
+      <img src="./logo.png" alt="Logo"></img>
+      <p> DODODOC </p>
+    </div>
+  );
 };
