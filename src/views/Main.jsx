@@ -5,7 +5,7 @@ import { TextBox } from "../components/TextBox";
 import { Keymap } from "../components/Keymap";
 import { LogoArea, TextBoxArea, KeymapContainer } from "../css/style.js";
 
-export const Main = () => {
+function Main () {
   const [keyColor, setKeyColor] = useState("white");
 
   const handleKeyPress = (key) => {
@@ -33,4 +33,7 @@ export const Main = () => {
       </KeymapContainer>
     </div>
   );
-};
+}
+
+export default Main;
+
