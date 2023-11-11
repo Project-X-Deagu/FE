@@ -61,6 +61,7 @@ export const Keymap = () => {
     } else if (currentKey !== key && pressedKeys.has(key)) {
       handleRemoveKey(key);
     }
+    currentKey = "";
   };
 
   const handleKeyUpdate = (isKeyDown, key) => {
