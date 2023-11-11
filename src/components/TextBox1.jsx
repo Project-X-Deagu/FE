@@ -47,7 +47,8 @@ export const TextBox1 = ({ onKeyPress }) => {
       const textBeforeCursor = text.substring(0, cursorPosition);
       const textAfterCursor = text.substring(selectionEnd);
 
-      const spacesNeeded = 4 - (cursorPosition % 4);
+      // Calculate the number of spaces needed to reach the next 4-column boundary
+      const spacesNeeded = 4;
 
       const indentedText =
         textBeforeCursor + " ".repeat(spacesNeeded) + textAfterCursor;
