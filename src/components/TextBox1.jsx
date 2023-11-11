@@ -1,34 +1,38 @@
-// TextBox.jsx
 import React, { useState } from "react";
 import styled from "styled-components";
 
+// 한국어 버전
 export const StyledTextArea = styled.textarea`
-  background-color: white;
-  //background-color: transparent;
-  width: 100%; /* 뷰포트 너비를 기준으로 100%로 설정 */
+  background-color: transparent;
+  width: 90%;
   min-width: 200px;
   max-width: 750px;
-  min-height: 300px; /* 최소 높이를 설정 */
-  height: auto;
-  resize: none; /* 사용자 조절 비활성화 */
+  height: 25px;
+  resize: none;
   //border: none;
   border-color: var(--bg-gray);
   border-width: 2px;
-  border-radius: 15px;
+  border-radius: 50px;
   outline: none;
-  margin: 0 auto;
-  padding: 10px;
+  //margin: 5 auto;
+  padding: 10px 25px;
   font-size: 20px;
 `;
 
-export const TextBox = ({ onKeyPress }) => {
+export const ImgButton = styled.img`
+  position: absolute;
+  //top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+`;
+
+export const TextBox1 = ({ onKeyPress }) => {
   const [text, setText] = useState("");
 
   const handleInputChange = (e) => {
     const value = e.target.value;
     setText(value);
-    e.target.style.height = "auto";
-    e.target.style.height = e.target.scrollHeight + "px";
   };
 
   const handleKeyDown = (e) => {
@@ -43,16 +47,13 @@ export const TextBox = ({ onKeyPress }) => {
       const textBeforeCursor = text.substring(0, cursorPosition);
       const textAfterCursor = text.substring(selectionEnd);
 
-      // Calculate the number of spaces needed to reach the next 4-column boundary
       const spacesNeeded = 4 - (cursorPosition % 4);
 
-      // Insert spaces at the cursor position
       const indentedText =
         textBeforeCursor + " ".repeat(spacesNeeded) + textAfterCursor;
 
       setText(indentedText);
 
-      // Set selection range to the end of the inserted spaces
       e.target.setSelectionRange(
         cursorPosition + spacesNeeded,
         cursorPosition + spacesNeeded
@@ -69,6 +70,9 @@ export const TextBox = ({ onKeyPress }) => {
         // rows={1} // 한 줄로 인식하도록 설정
         autoFocus
       />
+      <ImgButton src="blue-button.png" alt="first try" />
+      <ImgButton src="gray-button.png" alt="first try" />
+      <ImgButton src="retry-button.png" alt="first try" />
     </div>
   );
 };

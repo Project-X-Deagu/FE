@@ -1,15 +1,27 @@
+import React, { useState } from "react";
 import styled from "styled-components";
 
-export const Logo = () => {
-  const handleLogoClick = () => {
-    /* Logo를 클릭했을 때 새로고침 */
-    window.location.reload();
+const LogoContainer = styled.div`
+  cursor: pointer;
+`;
+
+export const Logo = ({ onLogoHover }) => {
+  const [isHovered, setHovered] = useState(false);
+
+  const handleLogoHover = () => {
+    setHovered(!isHovered);
+    onLogoHover(!isHovered);
   };
 
   return (
-    <div onClick={handleLogoClick}>
+    <LogoContainer
+      onMouseEnter={handleLogoHover}
+      onMouseLeave={handleLogoHover}
+    >
       <img src="./logo.png" alt="Logo"></img>
-      <p> DODODOC </p>
-    </div>
+      <p style={{ color: isHovered ? "red" : "black" }}>DODODOC</p>
+    </LogoContainer>
   );
 };
+
+export default Logo;
