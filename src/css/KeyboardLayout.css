@@ -49,5 +49,8 @@
 .keyboard-key:active {
   background: var(--bg-blue);
 }
+.shifted {
+  text-transform: uppercase;
+}
 
 /* 원하는 스타일을 여기에 추가하세요 */
