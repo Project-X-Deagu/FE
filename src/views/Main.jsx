@@ -1,17 +1,8 @@
-// Main.jsx
 import React, { useState } from "react";
 import { Logo } from "../components/Logo";
-import { TextBox1 } from "../components/TextBox1";
-import { TextBox2 } from "../components/TextBox2";
+import { TextBoxArea } from "../components/TextBoxArea.jsx";
 import { Keymap } from "../components/Keymap";
-import { Category } from "../components/Category";
-import {
-  LogoArea,
-  CategoryArea,
-  TextBoxArea,
-  KeymapArea,
-  SubButton,
-} from "../css/style.js";
+import { KeymapArea } from "../css/style.js";
 
 function Main() {
   const [keyColor, setKeyColor] = useState("white");
@@ -41,29 +32,15 @@ function Main() {
   return (
     <div>
       {/* 상단 로고 */}
-      <LogoArea>
-        <Logo onLogoHover={handleCategoryHover} />
-      </LogoArea>
-      {/* 드롭다운 카테고리 */}
-      <CategoryArea>
-        {/* <Category
-          isVisible={isCategoryVisible}
-          onSelectCategory={handleCategorySelect}
-        ></Category> */}
-        <SubButton onClick={() => handleCategorySelect("한글")}>한글</SubButton>
-        <SubButton onClick={() => handleCategorySelect("English")}>
-          English
-        </SubButton>
-      </CategoryArea>
+      <Logo
+        onLogoHover={handleCategoryHover}
+        onCategorySelect={handleCategorySelect}
+      />
       {/* 인풋 창 */}
-      <TextBoxArea>
-        {selectedCategory === "한글" && (
-          <TextBox1 onKeyPress={handleKeyPress} />
-        )}
-        {selectedCategory === "English" && (
-          <TextBox2 onKeyPress={handleKeyPress} />
-        )}
-      </TextBoxArea>
+      <TextBoxArea
+        selectedCategory={selectedCategory}
+        handleKeyPress={handleKeyPress}
+      />
       {/* 키보드 레이아웃 */}
       <KeymapArea>
         <Keymap keyColor={keyColor}></Keymap>

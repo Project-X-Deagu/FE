@@ -10,13 +10,17 @@ export const StyledTextArea = styled.textarea`
   height: 25px;
   resize: none;
   //border: none;
-  border-color: var(--bg-gray);
-  border-width: 2px;
+  border: 2px solid var(--bg-gray);
   border-radius: 50px;
   outline: none;
   //margin: 5 auto;
   padding: 10px 25px;
+  font-weight: normal;
   font-size: 20px;
+
+  &:focus {
+    border-color: black;
+  }
 `;
 
 export const ImgButton = styled.img`
