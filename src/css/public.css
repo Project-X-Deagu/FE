@@ -10,9 +10,9 @@
   font-family: "D2Coding", sans-serif;
 }
 :root {
-  background-color: #f4f6f8;
+  background-color: white;
   /* background-color: #5b87c7; */
-  --bg-gray: #abb0ba;
+  --bg-gray: #f9f9f9;
   --bg-blue: #007aff;
   --bg-red: #ff3b30;
 }
