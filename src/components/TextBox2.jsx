@@ -93,7 +93,7 @@ export const TextBox2 = ({ onKeyPress }) => {
         // rows={1} // 한 줄로 인식하도록 설정
         autoFocus
       />
-      <ImgButton src="arrow.png" alt="Next" onClick={handleImgButtonClick} />
+      {/* <ImgButton src="arrow.png" alt="Next" onClick={handleImgButtonClick} /> */}
     </div>
   );
 };
