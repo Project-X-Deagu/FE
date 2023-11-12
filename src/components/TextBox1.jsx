@@ -54,20 +54,31 @@ export const TextBox1 = ({ onKeyPress }) => {
       const cursorPosition = e.target.selectionStart;
       const selectionEnd = e.target.selectionEnd;
 
-      const textBeforeCursor = text.substring(0, cursorPosition);
-      const textAfterCursor = text.substring(selectionEnd);
+      const lineStart = text.lastIndexOf("\n", cursorPosition - 1) + 1;
+      const lineEnd = text.indexOf("\n", cursorPosition);
 
-      const spacesNeeded = 4;
+      const textBeforeLine = text.substring(0, lineStart);
+      const textInLine = text.substring(
+        lineStart,
+        lineEnd !== -1 ? lineEnd : text.length
+      );
+      const textAfterLine = text.substring(
+        lineEnd !== -1 ? lineEnd : text.length
+      );
 
-      const indentedText =
-        textBeforeCursor + " ".repeat(spacesNeeded) + textAfterCursor;
+      // Insert 4 spaces at the cursor position in the line
+      const indentedTextInLine =
+        textInLine.substring(0, cursorPosition - lineStart) +
+        " ".repeat(4) +
+        textInLine.substring(cursorPosition - lineStart);
+
+      // Combine all parts of the text
+      const indentedText = textBeforeLine + indentedTextInLine + textAfterLine;
 
       setText(indentedText);
 
-      e.target.setSelectionRange(
-        cursorPosition + spacesNeeded,
-        cursorPosition + spacesNeeded
-      );
+      // Set selection range to the end of the inserted spaces
+      e.target.setSelectionRange(cursorPosition + 4, cursorPosition + 4);
     }
 
     if (e.key === "Enter") {
