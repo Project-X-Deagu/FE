@@ -13,11 +13,13 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  border: 2px solid #ccc;
+  border: none;
+  /* border: 2px solid #eee; */
   border-radius: 5px;
   padding: 20px;
   margin: 20px;
-  background: #f2f2f2;
+  /* background: #f2f2f2; */
+  background: transparent;
 }
 
 .keyboard-row {

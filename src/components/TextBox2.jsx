@@ -14,7 +14,7 @@ export const StyledTextArea = styled.textarea`
   resize: none;
   //border: none;
   border: 2px solid black;
-  border-radius: 15px;
+  border-radius: 20px;
   outline: none;
   margin-top: 50px;
   padding: 15px 25px;

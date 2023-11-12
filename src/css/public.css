@@ -9,12 +9,15 @@
 * {
   font-family: "D2Coding", sans-serif;
 }
+
 :root {
   background-color: white;
   /* background-color: #5b87c7; */
   --bg-gray: #f9f9f9;
   --bg-blue: #007aff;
   --bg-red: #ff3b30;
+  --bg-orange: #ff9404;
+  --bg-green: #34c759;
 }
 
 body,

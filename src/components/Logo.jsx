@@ -3,9 +3,10 @@ import styled from "styled-components";
 
 export const SubButton = styled.button`
   padding: 10px 15px;
+  font-weight: bold;
   font-size: 16px;
-  /* background-color: var(-bg-gray); */
-  background-color: white;
+  background-color: transparent;
+  /* background-color: white; */
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -15,11 +16,12 @@ export const SubButton = styled.button`
 
   &:hover {
     opacity: 1;
-    background-color: var(--bg-blue);
-    color: white;
+    //background-color: var(--bg-blue);
+    //background-color: #2626263a;
+    color: var(--bg-blue);
   }
 
-  margin-left: 20px;
+  margin-left: 30px;
 `;
 
 export const LogoArea = styled.div`
@@ -40,14 +42,15 @@ export const LogoArea = styled.div`
   div {
     display: flex;
     flex-direction: row;
-    /* transition: transform 0.8s ease-in-out; */
+    align-items: center;
+    justify-content: center;
+    //transition: transform 0.8s ease-in-out;
   }
 
   img {
     width: 40px;
     height: 40px;
-    transition: transform 0.8s ease-in-out;
-    transform: translateX() (0);
+    transition: transform 0.5s ease-in-out;
   }
 
   p {
@@ -57,10 +60,10 @@ export const LogoArea = styled.div`
 
   &:hover {
     img {
-      transform: translateX(-50px);
+      transform: translateX(-30px);
     }
     div {
-      transform: translateX(-30px);
+      transform: translateX(-20px);
     }
   }
 
@@ -87,7 +90,6 @@ export const Logo = ({ onLogoHover, onCategorySelect }) => {
 
   const handleLogoClick = () => {
     setClicked((prev) => !prev);
-    // 로고 클릭 시 페이지 새로고침
     window.location.reload();
   };
 
@@ -108,7 +110,7 @@ export const Logo = ({ onLogoHover, onCategorySelect }) => {
             <SubButton
               isVisible={isHovered || isClicked}
               onClick={(e) => {
-                e.stopPropagation(); // 로고 클릭 이벤트 전파 방지
+                e.stopPropagation();
                 handleCategoryClick("한글");
               }}
             >
@@ -117,11 +119,29 @@ export const Logo = ({ onLogoHover, onCategorySelect }) => {
             <SubButton
               isVisible={isHovered || isClicked}
               onClick={(e) => {
-                e.stopPropagation(); // 로고 클릭 이벤트 전파 방지
+                e.stopPropagation();
                 handleCategoryClick("English");
               }}
             >
-              English
+              Java
+            </SubButton>
+            <SubButton
+              isVisible={isHovered || isClicked}
+              onClick={(e) => {
+                e.stopPropagation();
+                handleCategoryClick("English");
+              }}
+            >
+              Python
+            </SubButton>
+            <SubButton
+              isVisible={isHovered || isClicked}
+              onClick={(e) => {
+                e.stopPropagation();
+                handleCategoryClick("English");
+              }}
+            >
+              C
             </SubButton>
           </>
         )}

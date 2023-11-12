@@ -13,7 +13,7 @@ export const StyledTextArea = styled.textarea`
   overflow: hidden;
   //border: none;
   border: 2px solid black;
-  border-radius: 50px;
+  border-radius: 20px;
   outline: none;
   margin: 150px 0 50px 0; /* 수정된 부분 */
   padding: 10px 25px;
@@ -30,11 +30,11 @@ export const StyledTextArea = styled.textarea`
 
 export const ImgButton = styled.img`
   cursor: pointer;
-  width: 45px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   margin-top: 150px;
-  margin-left: 10px;
-  margin-bottom: 50px;
+  margin-left: 20px;
+  margin-bottom: 60px;
 `;
 
 export const TextBox1 = ({ onKeyPress }) => {
@@ -107,7 +107,21 @@ export const TextBox1 = ({ onKeyPress }) => {
         onKeyDown={handleKeyDown}
         autoFocus
       />
-      <ImgButton src="arrow.png" alt="Next" onClick={handleImgButtonClick} />
+      {/* <ImgButton
+        src="green-check.png"
+        alt="Next"
+        onClick={handleImgButtonClick}
+      />
+      <ImgButton
+        src="blue-check.png"
+        alt="Next"
+        onClick={handleImgButtonClick}
+      />
+      <ImgButton
+        src="orange-nope.png"
+        alt="Next"
+        onClick={handleImgButtonClick}
+      /> */}
     </div>
   );
 };

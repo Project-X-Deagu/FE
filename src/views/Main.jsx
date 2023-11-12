@@ -1,8 +1,15 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 import { Logo } from "../components/Logo";
+import TypingEffect from "../components/TypingEffect";
 import { TextBoxArea } from "../components/TextBoxArea.jsx";
 import { Keymap } from "../components/Keymap";
 import { KeymapArea } from "../css/style.js";
+
+const TextBoxKeymapWrapper = styled.div`
+  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  transition: opacity 1s ease-in-out;
+`;
 
 function Main() {
   const [keyColor, setKeyColor] = useState("white");
@@ -32,15 +39,22 @@ function Main() {
         onLogoHover={handleCategoryHover}
         onCategorySelect={handleCategorySelect}
       />
-      {/* 인풋 창 */}
-      <TextBoxArea
-        selectedCategory={selectedCategory}
-        handleKeyPress={handleKeyPress}
-      />
-      {/* 키보드 레이아웃 */}
-      <KeymapArea>
-        <Keymap keyColor={keyColor}></Keymap>
-      </KeymapArea>
+      {/* 카테고리 미선택 */}
+      {!selectedCategory && <TypingEffect></TypingEffect>}
+      {/* 카테고리 선택 */}
+      {selectedCategory && (
+        <TextBoxKeymapWrapper isVisible={selectedCategory !== null}>
+          {/* 인풋 창 */}
+          <TextBoxArea
+            selectedCategory={selectedCategory}
+            handleKeyPress={handleKeyPress}
+          />
+          {/* 키보드 레이아웃 */}
+          <KeymapArea>
+            <Keymap keyColor={keyColor}></Keymap>
+          </KeymapArea>
+        </TextBoxKeymapWrapper>
+      )}
     </div>
   );
 }

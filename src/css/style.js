@@ -7,7 +7,7 @@ export const Container = styled.div`
 `;
 
 export const KeymapArea = styled.div`
-  //background-color: var(--bg-blue);
+  //background-color: var(--bg-gray);
   width: 100%;
   height: 350px;
   display: flex;
