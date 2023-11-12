@@ -68,20 +68,22 @@ export const Keymap = () => {
   };
 
   const handleKeyUpdate = (isKeyDown, key) => {
-    if (isKeyDown && isAlphabetic(key)) {
+    if (isKeyDown) {
       handleSetPressedKeys(key);
-    } else {
+      // handleSetPressedKeys(determineKeyToDisplay(key));
+    } 
+    else {
       handleRemoveKey(key);
-      // 캡스락 키를 눌렀을 때도 pressedKeys에 추가되어 있는 경우를 처리
-      if (capsLockActive || capsLockPressed) {
-        handleRemoveKey(determineKeyToDisplay(key));
-      }
+      // handleRemoveKey(determineKeyToDisplay(key));
+    }
+    // 캡스락 키를 눌렀을 때도 pressedKeys에 추가되어 있는 경우를 처리
+    if (capsLockActive || capsLockPressed) {
+      handleRemoveKey(determineKeyToDisplay(key));
     }
   };
 
   const handleKeyDown = (event) => {
     const pressedKey = event.key;
-
     setIsShiftPressed(event.shiftKey);
 
     // 캡스락 대소문자 변환
@@ -91,11 +93,11 @@ export const Keymap = () => {
     handleToggleKey("Tab", pressedKey, event);
 
     // 나머지 키 처리
-    if (pressedKey !== "Tab") {
+    if (pressedKey !== isAlphabetic()) {
       const keyToDisplay = determineKeyToDisplay(pressedKey);
       handleKeyUpdate(true, keyToDisplay);
-      if ((capsLockActive || event.shiftKey) && isAlphabetic(pressedKey)) {
-        handleKeyUpdate(true, pressedKey.toUpperCase());
+      if ((capsLockActive || isShiftPressed)) {
+        handleKeyUpdate(true, keyToDisplay);
       }
     }
   };
@@ -108,7 +110,7 @@ export const Keymap = () => {
     handleToggleKey("Tab", releasedKey);
 
     // 나머지 키 처리
-    if (releasedKey !== "Tab") {
+    if (releasedKey !== isAlphabetic) {
       handleKeyUpdate(false, determineKeyToDisplay(releasedKey));
     }
 
@@ -116,13 +118,13 @@ export const Keymap = () => {
   };
 
   const handleSetPressedKeys = (key) => {
-    setPressedKeys((prevKeys) => new Set(prevKeys).add(key));
+    setPressedKeys((prevKeys) => new Set(prevKeys).add(determineKeyToDisplay(key)));
   };
 
   const handleRemoveKey = (key) => {
     setPressedKeys((prevKeys) => {
       const updatedKeys = new Set(prevKeys);
-      updatedKeys.delete(key);
+      updatedKeys.delete(determineKeyToDisplay(key));
       return updatedKeys;
     });
   };

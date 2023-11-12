@@ -44,17 +44,10 @@ export const KoreanKeymap = () => {
     "/": "?",
   };
 
-  const determineKeyToDisplay = (pressedKey, event) => {
-    if (capsLockActive || capsLockPressed) {
-      if (isShiftPressed) {
-        return shiftedSpecialChars[pressedKey] || pressedKey.toLowerCase();
-      } else {
-        return pressedKey.toUpperCase();
-      }
+  const determineKeyToDisplay = (pressedKey) => {
+    if (isShiftPressed) {
+      return shiftedSpecialChars[pressedKey] || shiftedhangul[pressedKey] || pressedKey;
     } else {
-      if (isShiftPressed) {
-        return shiftedSpecialChars[pressedKey] || pressedKey.toUpperCase();
-      }
       return pressedKey;
     }
   };
@@ -68,7 +61,7 @@ export const KoreanKeymap = () => {
     }
   };
 
-  const handleToggleKey = (key, currentKey, event) => {
+  const handleToggleKey = (key, currentKey) => {
     if (currentKey === key && !pressedKeys.has(key)) {
       handleKeyUpdate(true, key);
     } else if (currentKey !== key && pressedKeys.has(key)) {
@@ -78,7 +71,7 @@ export const KoreanKeymap = () => {
   };
 
   const handleKeyUpdate = (isKeyDown, key) => {
-    if (isKeyDown && isAlphabetic(key)) {
+    if (isKeyDown) {
       handleSetPressedKeys(key);
     } else {
       handleRemoveKey(key);
@@ -101,7 +94,7 @@ export const KoreanKeymap = () => {
     handleToggleKey("Tab", pressedKey, event);
 
     // 나머지 키 처리
-    if (pressedKey !== "Tab") {
+    if (pressedKey !== isAlphabetic()) {
       const keyToDisplay = determineKeyToDisplay(pressedKey);
       handleKeyUpdate(true, keyToDisplay);
       if ((capsLockActive || event.shiftKey) && isAlphabetic(pressedKey)) {
@@ -118,7 +111,7 @@ export const KoreanKeymap = () => {
     handleToggleKey("Tab", releasedKey);
 
     // 나머지 키 처리
-    if (releasedKey !== "Tab") {
+    if (releasedKey !== isAlphabetic()) {
       handleKeyUpdate(false, determineKeyToDisplay(releasedKey));
     }
 
