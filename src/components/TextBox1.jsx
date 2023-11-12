@@ -3,8 +3,8 @@ import styled from "styled-components";
 import EngTyping, { getRandomItem } from "./EngTyping";
 
 export const StyledTextArea = styled.textarea`
-  //background-color: transparent;
-  background-color: white;
+  background-color: transparent;
+  //background-color: white;
   width: calc(70% - 10px);
   min-width: 100px;
   max-width: 700px;
@@ -12,7 +12,7 @@ export const StyledTextArea = styled.textarea`
   resize: none;
   overflow: hidden;
   //border: none;
-  border: 2px solid white;
+  border: 2px solid black;
   border-radius: 50px;
   outline: none;
   margin: 150px 0 50px 0; /* 수정된 부분 */
@@ -23,8 +23,8 @@ export const StyledTextArea = styled.textarea`
   //ext-align: center;
 
   &:focus {
-    border-color: black;
-    background-color: white;
+    //border-color: black;
+    background-color: transparent;
   }
 `;
 

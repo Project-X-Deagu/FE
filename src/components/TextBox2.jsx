@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import EngTyping, { getRandomItem } from "./EngTyping";
 
 // Eng 버전
 export const StyledTextArea = styled.textarea`
   background-color: transparent;
-  background-color: white;
+  //background-color: white;
   width: 70%;
   min-width: 200px;
   max-width: 750px;
@@ -12,7 +13,7 @@ export const StyledTextArea = styled.textarea`
   min-height: 350px;
   resize: none;
   //border: none;
-  border: 2px solid white;
+  border: 2px solid black;
   border-radius: 15px;
   outline: none;
   margin-top: 50px;
@@ -21,9 +22,17 @@ export const StyledTextArea = styled.textarea`
   font-size: 22px;
 
   &:focus {
-    border-color: black;
-    background-color: white;
+    //border-color: black;
+    background-color: transparent;
   }
+`;
+
+export const ImgButton = styled.img`
+  cursor: pointer;
+  width: 45px;
+  height: 40px;
+  margin-bottom: 170px;
+  margin-left: 10px;
 `;
 
 export const TextBox2 = ({ onKeyPress }) => {
@@ -60,6 +69,10 @@ export const TextBox2 = ({ onKeyPress }) => {
     }
   };
 
+  const handleImgButtonClick = () => {
+    setText(getRandomItem());
+  };
+
   return (
     <div>
       <StyledTextArea
@@ -69,6 +82,7 @@ export const TextBox2 = ({ onKeyPress }) => {
         // rows={1} // 한 줄로 인식하도록 설정
         autoFocus
       />
+      <ImgButton src="arrow.png" alt="Next" onClick={handleImgButtonClick} />
     </div>
   );
 };
