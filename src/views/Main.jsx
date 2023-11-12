@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Logo } from "../components/Logo";
 import TypingEffect from "../components/TypingEffect";
 import { TextBoxArea } from "../components/TextBoxArea.jsx";
+import { KoreanKeymap } from "../components/KoreanKeymap";
 import { Keymap } from "../components/Keymap";
 // import { Keymap } from "../components/KoreanKeymap";
 import { KeymapArea } from "../css/style.js";
@@ -33,6 +34,18 @@ function Main() {
     }
   };
 
+  const getKeymapComponent = () => {
+    switch (selectedCategory) {
+      case "한글":
+        return <KoreanKeymap keyColor={keyColor} />;
+      case "English":
+        return <Keymap keyColor={keyColor} />;
+      // Add more cases for other categories
+      default:
+        return null;
+    }
+  };
+
   return (
     <div>
       {/* 상단 네비게이션 바 */}
@@ -51,9 +64,7 @@ function Main() {
             handleKeyPress={handleKeyPress}
           />
           {/* 키보드 레이아웃 */}
-          <KeymapArea>
-            <Keymap keyColor={keyColor}></Keymap>
-          </KeymapArea>
+          <KeymapArea>{getKeymapComponent()}</KeymapArea>
         </TextBoxKeymapWrapper>
       )}
     </div>

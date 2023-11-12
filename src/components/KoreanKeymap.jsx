@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../css/KeyboardLayout.css";
-import { keyboard } from "@testing-library/user-event/dist/keyboard";
 
-export const Keymap = () => {
+export const KoreanKeymap = () => {
   const [capsLockActive, setCapsLockActive] = useState(false);
   const [showCapsLock, setShowCapsLock] = useState(false);
   const [pressedKeys, setPressedKeys] = useState(new Set());
@@ -18,7 +17,7 @@ export const Keymap = () => {
     ㄱ: "ㄲ",
     ㅅ: "ㅆ",
     ㅐ: "ㅒ",
-    ㅔ: "ㅖ",   
+    ㅔ: "ㅖ",
   };
 
   const shiftedSpecialChars = {
@@ -43,20 +42,20 @@ export const Keymap = () => {
     ",": "<",
     ".": ">",
     "/": "?",
-    };
+  };
 
   const determineKeyToDisplay = (pressedKey, event) => {
     if (capsLockActive || capsLockPressed) {
-        if (isShiftPressed) {
-          return shiftedSpecialChars[pressedKey] || pressedKey.toLowerCase();
-        } else {
-          return pressedKey.toUpperCase();
-        }
+      if (isShiftPressed) {
+        return shiftedSpecialChars[pressedKey] || pressedKey.toLowerCase();
       } else {
-        if (isShiftPressed){
-          return shiftedSpecialChars[pressedKey] || pressedKey.toUpperCase();
-        }
-        return pressedKey;
+        return pressedKey.toUpperCase();
+      }
+    } else {
+      if (isShiftPressed) {
+        return shiftedSpecialChars[pressedKey] || pressedKey.toUpperCase();
+      }
+      return pressedKey;
     }
   };
 
@@ -92,7 +91,7 @@ export const Keymap = () => {
 
   const handleKeyDown = (event) => {
     const pressedKey = event.key;
-    
+
     setIsShiftPressed(event.shiftKey);
 
     // 캡스락 대소문자 변환
@@ -100,15 +99,12 @@ export const Keymap = () => {
 
     // 탭 키에 대한 토글 처리
     handleToggleKey("Tab", pressedKey, event);
-    
+
     // 나머지 키 처리
     if (pressedKey !== "Tab") {
       const keyToDisplay = determineKeyToDisplay(pressedKey);
       handleKeyUpdate(true, keyToDisplay);
-      if (
-        (capsLockActive || event.shiftKey) &&
-        isAlphabetic(pressedKey)
-      ) {
+      if ((capsLockActive || event.shiftKey) && isAlphabetic(pressedKey)) {
         handleKeyUpdate(true, pressedKey.toUpperCase());
       }
     }
@@ -125,7 +121,7 @@ export const Keymap = () => {
     if (releasedKey !== "Tab") {
       handleKeyUpdate(false, determineKeyToDisplay(releasedKey));
     }
-    
+
     setIsShiftPressed(event.shiftKey);
   };
 
@@ -152,7 +148,7 @@ export const Keymap = () => {
 
   // 키보드 레이아웃 컴포넌트 렌더링
   return (
-    <div className="keyboard-layout"> 
+    <div className="keyboard-layout">
       <div className="keyboard-row">
         <div className={`keyboard-key ${pressedKeys.has("`") && "pressed"}`}>
           {determineKeyToDisplay("`")}
@@ -197,7 +193,7 @@ export const Keymap = () => {
           className={`keyboard-key ${
             pressedKeys.has("Backspace") && "pressed"
           }`}
-          >
+        >
           Backspace
         </div>
       </div>
@@ -250,7 +246,7 @@ export const Keymap = () => {
           className={`keyboard-key ${
             capsLockPressed || capsLockActive ? "pressed" : ""
           }`}
-          >
+        >
           Caps Lock
         </div>
         <div className={`keyboard-key ${pressedKeys.has("ㅁ") && "pressed"}`}>
@@ -288,14 +284,14 @@ export const Keymap = () => {
         </div>
         <div
           className={`keyboard-key ${pressedKeys.has("Enter") && "pressed"}`}
-          >
+        >
           Enter
         </div>
       </div>
       <div className="keyboard-row">
         <div
           className={`keyboard-key ${pressedKeys.has("Shift") && "pressed"}`}
-          >
+        >
           Shift
         </div>
         <div className={`keyboard-key ${pressedKeys.has("ㅋ") && "pressed"}`}>

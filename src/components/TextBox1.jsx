@@ -15,7 +15,7 @@ export const StyledTextArea = styled.textarea`
   border: 2px solid black;
   border-radius: 20px;
   outline: none;
-  margin: 150px 0 50px 0; /* 수정된 부분 */
+  margin: 150px 0 50px 0;
   padding: 10px 25px;
   font-family: "D2Coding", sans-serif;
   font-weight: normal;
@@ -66,18 +66,15 @@ export const TextBox1 = ({ onKeyPress }) => {
         lineEnd !== -1 ? lineEnd : text.length
       );
 
-      // Insert 4 spaces at the cursor position in the line
       const indentedTextInLine =
         textInLine.substring(0, cursorPosition - lineStart) +
         " ".repeat(4) +
         textInLine.substring(cursorPosition - lineStart);
 
-      // Combine all parts of the text
       const indentedText = textBeforeLine + indentedTextInLine + textAfterLine;
 
       setText(indentedText);
 
-      // Set selection range to the end of the inserted spaces
       e.target.setSelectionRange(cursorPosition + 4, cursorPosition + 4);
     }
 
