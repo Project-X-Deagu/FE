@@ -1,33 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-export const LogoArea = styled.div`
-  cursor: pointer;
-
-  background-color: var(--bg-blue);
-  width: 100%;
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-  font-size: 30px;
-  font-weight: bold;
-  //margin: 30px auto;
-  img {
-    width: 40px;
-    height: 40px;
-    margin-top: 10px;
-  }
-
-  p {
-    font-size: 17px;
-    margin-top: 5px;
-    color: black;
-  }
-`;
-
 export const SubButton = styled.button`
   padding: 10px 15px;
   font-size: 16px;
@@ -39,6 +12,34 @@ export const SubButton = styled.button`
   &:hover {
     background-color: var(--bg-blue);
     color: white;
+  }
+`;
+
+export const LogoArea = styled.div`
+  cursor: pointer;
+  //background-color: var(--bg-blue);
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  //margin: 30px auto;
+
+  img {
+    width: 40px;
+    height: 40px;
+    margin-top: 10px;
+    //transition: margin-left 0.3s ease-in-out;
+  }
+
+  p {
+    font-size: 17px;
+    margin-top: 5px;
+    color: black;
   }
 `;
 
@@ -66,7 +67,7 @@ export const Logo = ({ onLogoHover, onCategorySelect }) => {
   return (
     <LogoArea onMouseEnter={handleLogoHover} onMouseLeave={handleLogoLeave}>
       <div onClick={handleLogoClick} isHovered={isHovered}>
-        <img src="./logo.png" alt="Logo"></img>
+        <img src="./logo.png" alt="Logo" />
         {/* <p>DODODOC</p> */}
         {/* 인풋 창 */}
         {isHovered && (

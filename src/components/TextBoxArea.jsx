@@ -4,11 +4,12 @@ import { TextBox1 } from "./TextBox1";
 import { TextBox2 } from "./TextBox2";
 
 export const StyledTextBoxArea = styled.div`
-  //background-color: green;
-  width: 70%;
+  //background-color: orange;
+  width: 100%;
   height: auto;
+  min-height: 400px;
   text-align: center;
-  margin: 20px auto;
+  margin-top: 20px;
   display: fixed;
   justify-content: center;
   align-items: center;

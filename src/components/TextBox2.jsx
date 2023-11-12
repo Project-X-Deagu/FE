@@ -3,24 +3,26 @@ import styled from "styled-components";
 
 // Eng 버전
 export const StyledTextArea = styled.textarea`
-  //background-color: white;
   background-color: transparent;
-  width: 90%;
+  background-color: white;
+  width: 70%;
   min-width: 200px;
   max-width: 750px;
   height: auto;
-  min-height: 200px;
+  min-height: 350px;
   resize: none;
   //border: none;
-  border: 2px solid var(--bg-gray);
-  border-radius: 20px;
+  border: 2px solid white;
+  border-radius: 15px;
   outline: none;
-  //margin: 0 auto;
-  padding: 10px 25px;
-  font-size: 20px;
+  margin-top: 50px;
+  padding: 15px 25px;
+  font-family: "D2Coding", sans-serif;
+  font-size: 22px;
 
   &:focus {
     border-color: black;
+    background-color: white;
   }
 `;
 

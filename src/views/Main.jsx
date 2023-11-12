@@ -9,10 +9,6 @@ function Main() {
   const [isCategoryVisible, setCategoryVisible] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
 
-  const handleLogoClick = () => {
-    window.location.reload();
-  };
-
   const handleCategoryHover = (hovered) => {
     setCategoryVisible(hovered);
   };
@@ -31,7 +27,7 @@ function Main() {
 
   return (
     <div>
-      {/* 상단 로고 */}
+      {/* 상단 네비게이션 바 */}
       <Logo
         onLogoHover={handleCategoryHover}
         onCategorySelect={handleCategorySelect}

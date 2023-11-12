@@ -1,23 +1,21 @@
-import React from "react";
-import { TextBox2 } from "./TextBox2";
-
-const textData = [
-  "The quick brown fox jumps over the lazy dog.",
-  "Programming is fun and challenging.",
-  "React is a popular JavaScript library for building user interfaces.",
-  "Practice makes perfect.",
-  "Coding is a skill worth mastering.",
+const dataSet = [
+  "가나다",
+  "abc",
+  "아베쎄",
+  "굿",
+  // ... 추가적인 데이터셋 아이템들
 ];
 
-const TypingPractice = () => {
-  const handleKeyPress = (key) => {
-    // 부모 컴포넌트에서 필요한 키 이벤트 처리
-    if (key === "Tab") {
-      // 추가적인 동작 수행
-    }
-  };
+export const getRandomItem = () => {
+  if (dataSet.length === 0) {
+    return "게임 끝";
+  }
 
-  return <TextBox2 textData={textData} onKeyPress={handleKeyPress} />;
+  const randomIndex = Math.floor(Math.random() * dataSet.length);
+  const randomItem = dataSet[randomIndex];
+
+  // dataSet 배열에서 해당 문자열을 제거
+  dataSet.splice(randomIndex, 1);
+
+  return randomItem;
 };
-
-export default TypingPractice;

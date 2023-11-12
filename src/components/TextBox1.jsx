@@ -1,38 +1,44 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import EngTyping, { getRandomItem } from "./EngTyping";
 
-// 한국어 버전
 export const StyledTextArea = styled.textarea`
-  background-color: transparent;
-  width: 90%;
-  min-width: 200px;
-  max-width: 750px;
+  //background-color: transparent;
+  background-color: white;
+  width: calc(70% - 10px);
+  min-width: 100px;
+  max-width: 700px;
   height: 25px;
   resize: none;
+  overflow: hidden;
   //border: none;
-  border: 2px solid var(--bg-gray);
+  border: 2px solid white;
   border-radius: 50px;
   outline: none;
-  //margin: 5 auto;
+  margin: 150px 0 50px 0; /* 수정된 부분 */
   padding: 10px 25px;
+  font-family: "D2Coding", sans-serif;
   font-weight: normal;
   font-size: 20px;
+  //ext-align: center;
 
   &:focus {
     border-color: black;
+    background-color: white;
   }
 `;
 
 export const ImgButton = styled.img`
-  position: absolute;
-  //top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
   cursor: pointer;
+  width: 45px;
+  height: 40px;
+  margin-top: 150px;
+  margin-left: 10px;
+  margin-bottom: 50px;
 `;
 
 export const TextBox1 = ({ onKeyPress }) => {
-  const [text, setText] = useState("");
+  const [text, setText] = useState(() => getRandomItem());
 
   const handleInputChange = (e) => {
     const value = e.target.value;
@@ -51,7 +57,6 @@ export const TextBox1 = ({ onKeyPress }) => {
       const textBeforeCursor = text.substring(0, cursorPosition);
       const textAfterCursor = text.substring(selectionEnd);
 
-      // Calculate the number of spaces needed to reach the next 4-column boundary
       const spacesNeeded = 4;
 
       const indentedText =
@@ -64,20 +69,34 @@ export const TextBox1 = ({ onKeyPress }) => {
         cursorPosition + spacesNeeded
       );
     }
+
+    if (e.key === "Enter") {
+      e.preventDefault();
+      handleImgButtonClick();
+    }
+  };
+
+  const handleImgButtonClick = () => {
+    setText(getRandomItem());
   };
 
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        position: "relative",
+        margin: "0 auto",
+      }}
+    >
       <StyledTextArea
         value={text}
         onChange={handleInputChange}
         onKeyDown={handleKeyDown}
-        // rows={1} // 한 줄로 인식하도록 설정
         autoFocus
       />
-      <ImgButton src="blue-button.png" alt="first try" />
-      <ImgButton src="gray-button.png" alt="first try" />
-      <ImgButton src="retry-button.png" alt="first try" />
+      <ImgButton src="arrow.png" alt="Next" onClick={handleImgButtonClick} />
     </div>
   );
 };
