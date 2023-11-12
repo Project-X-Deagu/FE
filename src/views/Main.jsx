@@ -4,6 +4,7 @@ import { Logo } from "../components/Logo";
 import TypingEffect from "../components/TypingEffect";
 import { TextBoxArea } from "../components/TextBoxArea.jsx";
 import { Keymap } from "../components/Keymap";
+// import { Keymap } from "../components/KoreanKeymap";
 import { KeymapArea } from "../css/style.js";
 
 const TextBoxKeymapWrapper = styled.div`
