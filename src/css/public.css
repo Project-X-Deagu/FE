@@ -48,3 +48,9 @@ body {
   justify-content: center;
   background-color: #002fff;
 } */
+
+.TextBox {
+  text-align: center;
+  font-size: 25px;
+  line-height: 1.5;
+}

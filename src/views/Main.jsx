@@ -6,6 +6,7 @@ import { TextBoxArea } from "../components/TextBoxArea.jsx";
 import { KoreanKeymap } from "../components/KoreanKeymap";
 import { Keymap } from "../components/Keymap";
 import { KeymapArea } from "../css/style.js";
+import "../css/public.css"
 
 const TextBoxKeymapWrapper = styled.div`
   opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
@@ -56,6 +57,10 @@ function Main() {
         onLogoHover={handleCategoryHover}
         onCategorySelect={handleCategorySelect}
       />
+      <div className = "TextBox">
+        <br></br>
+        {selectedCategory}
+      </div>
       {/* 카테고리 미선택 */}
       {!selectedCategory && <TypingEffect></TypingEffect>}
       {/* 카테고리 선택 */}

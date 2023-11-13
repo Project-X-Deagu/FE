@@ -37,7 +37,7 @@ export const ImgButton = styled.img`
 `;
 
 export const TextBox2_JAVA = ({ onKeyPress }) => {
-  const [text, setText] = useState("TEST SENTENCE");
+  const [text, setText] = useState("import java.util.Scanner;\npublic class Main {\n	public static void main(String[] args) {\n		Scanner sc = new Scanner(System.in);\n		int N = sc.nextInt();\n		int i = 0;\n		int j;\n		while (i++ < N) {\n			j = 0;\n			while (j++ < N) {\n				if (N - i + 1 > j)\n					System.out.print(\" \");\n				else\n					System.out.print("*");\n			}\n			System.out.print(\"\\n\");\n		}\n	}\n}");
   const [list, setList] = useState([]);
   const getRandom = (min, max) => Math.floor(Math.random() * (max - min) + min);
 
@@ -91,7 +91,7 @@ export const TextBox2_JAVA = ({ onKeyPress }) => {
   };
 
   const handleImgButtonClick = () => {
-    setText(list[getRandom(0, 4)]);
+    setText(list[getRandom(0, 10)]);
   };
 
   return (

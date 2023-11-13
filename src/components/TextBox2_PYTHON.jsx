@@ -37,7 +37,7 @@ export const ImgButton = styled.img`
 `;
 
 export const TextBox2_PYTHON = ({ onKeyPress }) => {
-  const [text, setText] = useState("TEST SENTENCE");
+  const [text, setText] = useState("import sys\ninput = sys.stdin.readline\nn, m, k = map(int, input().split())\narr = list(map(int, input().split()))\narr.sort()\nfirst = arr[n-1]\nsecond = arr[n-2]\ncount = int(m / (k+1)) * k\ncount += m % (k + 1)\nans = 0\nans += count * first\nans += (m - count) * second\nprint(ans)");
   const [list, setList] = useState([]);
   const getRandom = (min, max) => Math.floor(Math.random() * (max - min) + min);
 
@@ -91,7 +91,7 @@ export const TextBox2_PYTHON = ({ onKeyPress }) => {
   };
 
   const handleImgButtonClick = () => {
-    setText(list[getRandom(4, 9)]);
+    setText(list[getRandom(9, 19)]);
   };
 
   return (
