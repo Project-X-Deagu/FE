@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import EngTyping, { getRandomItem } from "./EngTyping";
 import axios from "axios";
 
 export const StyledTextArea = styled.textarea`
@@ -33,7 +32,9 @@ export const ImgButton = styled.img`
 
 export const TextBox1 = ({ onKeyPress }) => {
   const [list, setList] = useState([]);
-  const [showText, setShowText] = useState("오랫동안 꿈을 그리는 사람은 마침내 그 꿈을 닮아간다.");
+  const [showText, setShowText] = useState(
+    "오랫동안 꿈을 그리는 사람은 마침내 그 꿈을 닮아간다."
+  );
   const [inputText, setInputText] = useState("");
 
   const getRandom = (min, max) => Math.floor(Math.random() * (max - min) + min);

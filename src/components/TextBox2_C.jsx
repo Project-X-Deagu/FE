@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import EngTyping, { getRandomItem } from "./EngTyping";
 import axios from "axios";
 
 // Eng 버전
@@ -37,16 +36,18 @@ export const ImgButton = styled.img`
 `;
 
 export const TextBox2_C = ({ onKeyPress }) => {
-  const [text, setText] = useState("void searchWord(const struct Dictionary *dictionary, const char *word) {\n    int found = 0;\n    for (int i = 0; i < dictionary->count; i++) {\n        if (strcmp(dictionary->words[i].word, word) == 0) {\n            printf(\"mean: %s\n\", dictionary->words[i].meaning);\n            found = 1;\n            break;\n        }\n    }\n    if (!found) {\n        printf(\"can't find\");\n    }\n}");
+  const [text, setText] = useState(
+    'void searchWord(const struct Dictionary *dictionary, const char *word) {\n    int found = 0;\n    for (int i = 0; i < dictionary->count; i++) {\n        if (strcmp(dictionary->words[i].word, word) == 0) {\n            printf("mean: %s\n", dictionary->words[i].meaning);\n            found = 1;\n            break;\n        }\n    }\n    if (!found) {\n        printf("can\'t find");\n    }\n}'
+  );
   const [list, setList] = useState([]);
   const getRandom = (min, max) => Math.floor(Math.random() * (max - min) + min);
 
   useEffect(() => {
-    axios.get('/api/english/c').then((res) => {
-      setList(res.data)
-      console.log(res)
-    })
-  }, [])
+    axios.get("/api/english/c").then((res) => {
+      setList(res.data);
+      console.log(res);
+    });
+  }, []);
 
   const handleInputChange = (e) => {
     const value = e.target.value;

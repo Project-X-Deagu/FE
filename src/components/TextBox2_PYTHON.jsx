@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import EngTyping, { getRandomItem } from "./EngTyping";
 import axios from "axios";
 
-// Eng 버전
 export const StyledTextArea = styled.textarea`
   background-color: transparent;
   //background-color: white;
@@ -37,16 +35,18 @@ export const ImgButton = styled.img`
 `;
 
 export const TextBox2_PYTHON = ({ onKeyPress }) => {
-  const [text, setText] = useState("import sys\ninput = sys.stdin.readline\nn, m, k = map(int, input().split())\narr = list(map(int, input().split()))\narr.sort()\nfirst = arr[n-1]\nsecond = arr[n-2]\ncount = int(m / (k+1)) * k\ncount += m % (k + 1)\nans = 0\nans += count * first\nans += (m - count) * second\nprint(ans)");
+  const [text, setText] = useState(
+    "import sys\ninput = sys.stdin.readline\nn, m, k = map(int, input().split())\narr = list(map(int, input().split()))\narr.sort()\nfirst = arr[n-1]\nsecond = arr[n-2]\ncount = int(m / (k+1)) * k\ncount += m % (k + 1)\nans = 0\nans += count * first\nans += (m - count) * second\nprint(ans)"
+  );
   const [list, setList] = useState([]);
   const getRandom = (min, max) => Math.floor(Math.random() * (max - min) + min);
 
   useEffect(() => {
-    axios.get('/api/english/python').then((res) => {
-      setList(res.data)
-      console.log(res)
-    })
-  }, [])
+    axios.get("/api/english/python").then((res) => {
+      setList(res.data);
+      console.log(res);
+    });
+  }, []);
 
   const handleInputChange = (e) => {
     const value = e.target.value;
