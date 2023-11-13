@@ -11,21 +11,20 @@
   border-radius: 5px;
   padding: 20px;
   margin: 20px;
-  /* background: #f2f2f2; */
   background: transparent;
 }
 
 .keyboard-row {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 /* 일반 키 */
 .keyboard-key {
-  width: 30px;
-  height: 30px;
-  border: 1px solid #ccc;
+  width: 40px;
+  height: 40px;
+  border: 2px solid black;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -56,8 +55,8 @@
 /* 스페이스바 */
 .space-key {
   width: 400px;
-  height: 30px;
-  border: 1px solid #ccc;
+  height: 40px;
+  border: 2px solid black;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -85,9 +84,9 @@
 
 /* 1.5 - TAB, Backspace */
 .tabnback-key {
-  width: 60px;
-  height: 30px;
-  border: 1px solid #ccc;
+  width: 70px;
+  height: 40px;
+  border: 2px solid black;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -113,11 +112,41 @@
   background: var(--bg-blue);
 }
 
+/* 1.8 - Ctrl, Alt */
+/* 1.5 - TAB, Backspace */
+.ctrlalt-key {
+  width: 80px;
+  height: 40px;
+  border: 2px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  background: white;
+  border-radius: 4px;
+  margin: 2px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s;
+}
+
+.ctrlalt-key.pressed {
+  background-color: var(--bg-blue); /* 원하는 눌린 키 스타일 지정 */
+  color: white; /* 키 텍스트 색상 지정 */
+}
+
+.ctrlalt-key:hover {
+  background: #d9d9d9;
+}
+
+.ctrlalt-key:active {
+  background: var(--bg-blue);
+}
 /* 2 - Capslock, Enter */
 .capsenter-key {
-  width: 80px;
-  height: 30px;
-  border: 1px solid #ccc;
+  width: 90px;
+  height: 40px;
+  border: 2px solid black;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -145,9 +174,9 @@
 
 /* 2.5 - Shift */
 .shift-key {
-  width: 100px;
-  height: 30px;
-  border: 1px solid #ccc;
+  width: 110px;
+  height: 40px;
+  border: 2px solid black;
   display: flex;
   align-items: center;
   justify-content: center;

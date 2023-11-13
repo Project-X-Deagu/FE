@@ -31,11 +31,7 @@ const TypingEffect = ({ text, onComplete }) => {
 
 const TypingEffectExample = () => {
   const titleSentences = ["타자연습 Project-X '", "도도독", "'"];
-  const mainSentences = [
-    "도도..도도독..typing",
-    " ",
-    "> 네비게이션 바에 손을 올려보세요.",
-  ];
+  const mainSentences = ["도독..도독", " ", "> 상단에 손을 올려보세요."];
 
   const [isTitleTypingFinished, setTitleTypingFinished] = useState(false);
 

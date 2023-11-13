@@ -33,7 +33,7 @@ export const KoreanKeymap = () => {
     0: ")",
     "-": "_",
     "=": "+",
-    "`": "~",
+    "₩": "~",
     "[": "{",
     "]": "}",
     "\\": "|",
@@ -46,7 +46,11 @@ export const KoreanKeymap = () => {
 
   const determineKeyToDisplay = (pressedKey) => {
     if (isShiftPressed) {
-      return shiftedSpecialChars[pressedKey] || shiftedhangul[pressedKey] || pressedKey;
+      return (
+        shiftedSpecialChars[pressedKey] ||
+        shiftedhangul[pressedKey] ||
+        pressedKey
+      );
     } else {
       return pressedKey;
     }
@@ -143,8 +147,8 @@ export const KoreanKeymap = () => {
   return (
     <div className="keyboard-layout">
       <div className="keyboard-row">
-        <div className={`keyboard-key ${pressedKeys.has("`") && "pressed"}`}>
-          {determineKeyToDisplay("`")}
+        <div className={`keyboard-key ${pressedKeys.has("₩") && "pressed"}`}>
+          {determineKeyToDisplay("₩")}
         </div>
         <div className={`keyboard-key ${pressedKeys.has("1") && "pressed"}`}>
           {determineKeyToDisplay("1")}
@@ -183,7 +187,7 @@ export const KoreanKeymap = () => {
           {determineKeyToDisplay("=")}
         </div>
         <div
-          className={`keyboard-key ${
+          className={`tabnback-key ${
             pressedKeys.has("Backspace") && "pressed"
           }`}
         >
@@ -191,7 +195,7 @@ export const KoreanKeymap = () => {
         </div>
       </div>
       <div className="keyboard-row">
-        <div className={`keyboard-key ${pressedKeys.has("Tab") && "pressed"}`}>
+        <div className={`tabnback-key ${pressedKeys.has("Tab") && "pressed"}`}>
           TAB
         </div>
         <div className={`keyboard-key ${pressedKeys.has("ㅂ") && "pressed"}`}>
@@ -236,7 +240,7 @@ export const KoreanKeymap = () => {
       </div>
       <div className="keyboard-row">
         <div
-          className={`keyboard-key ${
+          className={`capsenter-key ${
             capsLockPressed || capsLockActive ? "pressed" : ""
           }`}
         >
@@ -276,15 +280,13 @@ export const KoreanKeymap = () => {
           {determineKeyToDisplay("'")}
         </div>
         <div
-          className={`keyboard-key ${pressedKeys.has("Enter") && "pressed"}`}
+          className={`capsenter-key ${pressedKeys.has("Enter") && "pressed"}`}
         >
           Enter
         </div>
       </div>
       <div className="keyboard-row">
-        <div
-          className={`keyboard-key ${pressedKeys.has("Shift") && "pressed"}`}
-        >
+        <div className={`shift-key ${pressedKeys.has("Shift") && "pressed"}`}>
           Shift
         </div>
         <div className={`keyboard-key ${pressedKeys.has("ㅋ") && "pressed"}`}>
@@ -317,29 +319,27 @@ export const KoreanKeymap = () => {
         <div className={`keyboard-key ${pressedKeys.has("/") && "pressed"}`}>
           {determineKeyToDisplay("/")}
         </div>
-        <div
-          className={`keyboard-key ${pressedKeys.has("Shift") && "pressed"}`}
-        >
+        <div className={`shift-key ${pressedKeys.has("Shift") && "pressed"}`}>
           Shift
         </div>
       </div>
       <div className="keyboard-row">
         <div
-          className={`keyboard-key ${pressedKeys.has("Control") && "pressed"}`}
+          className={`ctrlalt-key ${pressedKeys.has("Control") && "pressed"}`}
         >
           Ctrl
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("Alt") && "pressed"}`}>
+        <div className={`ctrlalt-key ${pressedKeys.has("Alt") && "pressed"}`}>
           Alt
         </div>
-        <div className={`keyboard-key ${pressedKeys.has(" ") && "pressed"}`}>
+        <div className={`space-key ${pressedKeys.has(" ") && "pressed"}`}>
           Space
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("Alt") && "pressed"}`}>
+        <div className={`ctrlalt-key ${pressedKeys.has("Alt") && "pressed"}`}>
           Alt
         </div>
         <div
-          className={`keyboard-key ${pressedKeys.has("Control") && "pressed"}`}
+          className={`ctrlalt-key ${pressedKeys.has("Control") && "pressed"}`}
         >
           Ctrl
         </div>

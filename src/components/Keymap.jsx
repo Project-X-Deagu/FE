@@ -143,43 +143,95 @@ export const Keymap = () => {
   return (
     <div className="keyboard-layout">
       <div className="keyboard-row">
-        <div className={`keyboard-key ${pressedKeys.has("`") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("~") || pressedKeys.has("`")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("`")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("1") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("!") || pressedKeys.has("1")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("1")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("2") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("@") || pressedKeys.has("2")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("2")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("3") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("#") || pressedKeys.has("3")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("3")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("4") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("$") || pressedKeys.has("4")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("4")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("5") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("%") || pressedKeys.has("5")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("5")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("6") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("^") || pressedKeys.has("6")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("6")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("7") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("&") || pressedKeys.has("7")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("7")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("8") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("*") || pressedKeys.has("8")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("8")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("9") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("(") || pressedKeys.has("9")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("9")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("0") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has(")") || pressedKeys.has("0")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("0")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("-") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("_") || pressedKeys.has("-")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("-")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("=") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("+") || pressedKeys.has("=")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("=")}
         </div>
         <div
@@ -194,43 +246,95 @@ export const Keymap = () => {
         <div className={`tabnback-key ${pressedKeys.has("Tab") && "pressed"}`}>
           TAB
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("q") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("Q") || pressedKeys.has("q")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("q")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("w") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("W") || pressedKeys.has("w")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("w")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("e") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("E") || pressedKeys.has("e")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("e")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("r") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("R") || pressedKeys.has("r")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("r")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("t") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("T") || pressedKeys.has("t")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("t")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("y") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("Y") || pressedKeys.has("y")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("y")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("u") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("U") || pressedKeys.has("u")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("u")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("i") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("I") || pressedKeys.has("i")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("i")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("o") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("O") || pressedKeys.has("o")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("o")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("p") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("P") || pressedKeys.has("p")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("p")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("[") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("{") || pressedKeys.has("[")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("[")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("]") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("}") || pressedKeys.has("]")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("]")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("\\") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("|") || pressedKeys.has("\\")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("\\")}
         </div>
       </div>
@@ -242,37 +346,81 @@ export const Keymap = () => {
         >
           Caps Lock
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("a") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("A") || pressedKeys.has("a")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("a")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("s") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("S") || pressedKeys.has("s")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("s")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("d") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("D") || pressedKeys.has("d")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("d")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("f") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("F") || pressedKeys.has("f")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("f")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("g") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("G") || pressedKeys.has("g")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("g")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("h") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("H") || pressedKeys.has("h")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("h")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("j") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("J") || pressedKeys.has("j")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("j")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("k") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("K") || pressedKeys.has("k")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("k")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("l") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("L") || pressedKeys.has("l")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("l")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has(";") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has(":") || pressedKeys.has(";")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay(";")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("'") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has('"') || pressedKeys.has("'")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("'")}
         </div>
         <div
@@ -285,34 +433,74 @@ export const Keymap = () => {
         <div className={`shift-key ${pressedKeys.has("Shift") && "pressed"}`}>
           Shift
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("z") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("Z") || pressedKeys.has("z")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("z")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("x") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("X") || pressedKeys.has("x")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("x")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("c") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("C") || pressedKeys.has("c")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("c")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("v") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("V") || pressedKeys.has("v")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("v")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("b") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("B") || pressedKeys.has("b")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("b")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("n") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("N") || pressedKeys.has("n")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("n")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("m") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("M") || pressedKeys.has("m")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("m")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has(",") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("<") || pressedKeys.has(",")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay(",")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has(".") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has(">") || pressedKeys.has(".")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay(".")}
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("/") && "pressed"}`}>
+        <div
+          className={`keyboard-key ${
+            (pressedKeys.has("?") || pressedKeys.has("/")) && "pressed"
+          }`}
+        >
           {determineKeyToDisplay("/")}
         </div>
         <div className={`shift-key ${pressedKeys.has("Shift") && "pressed"}`}>
@@ -321,21 +509,21 @@ export const Keymap = () => {
       </div>
       <div className="keyboard-row">
         <div
-          className={`keyboard-key ${pressedKeys.has("Control") && "pressed"}`}
+          className={`ctrlalt-key ${pressedKeys.has("Control") && "pressed"}`}
         >
           Ctrl
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("Alt") && "pressed"}`}>
+        <div className={`ctrlalt-key ${pressedKeys.has("Alt") && "pressed"}`}>
           Alt
         </div>
         <div className={`space-key ${pressedKeys.has(" ") && "pressed"}`}>
           Space
         </div>
-        <div className={`keyboard-key ${pressedKeys.has("Alt") && "pressed"}`}>
+        <div className={`ctrlalt-key ${pressedKeys.has("Alt") && "pressed"}`}>
           Alt
         </div>
         <div
-          className={`keyboard-key ${pressedKeys.has("Control") && "pressed"}`}
+          className={`ctrlalt-key ${pressedKeys.has("Control") && "pressed"}`}
         >
           Ctrl
         </div>
