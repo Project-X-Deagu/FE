@@ -1,0 +1,667 @@
+.content {
+    position: absolute;
+    top: 100px;
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .content2 {
+    position: absolute;
+    top: 100px;
+    width: 100%;
+    height: 70%;
+  }
+  
+  .practice-box {
+    width: 70%;
+    flex: 1;
+    border: 2px solid #BDBDBD;
+    border-radius: 24px;
+    margin-top: 150px;
+  }
+  
+  .practice-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid #E0E0E0;
+  }
+  
+  #noBorder {
+    border: 0px;
+  }
+  
+  .progress-box {
+    flex: 1;
+    text-align: center;
+    justify-content: center;
+    align-items: stretch;
+    display: flex;
+    padding: 5px;
+    padding-left: 3%;
+    padding-right: 3%;
+    color: #828282;
+    border-left: 2px solid #E0E0E0;
+  }
+  .progress-box .left-content {
+    flex: 3;
+    text-align: left;
+  }
+  .progress-box .left-content .title {
+    font-size: 16px;
+    font-weight: 700;
+  }
+  
+  .progress-box .left-content .name {
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+    margin-left: 10px;
+  }
+  
+  .progress-box .left-content .progress-border {
+    border: 2px solid #E0E0E0;
+    border-radius: 2px;
+    margin-right: 10px;
+  }
+  
+  .progress-box .left-content .text-box {
+    margin-right: 10px;
+    margin-top: 4px;
+    background-color: #7BC5C5;
+    border-radius: 16px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
+  
+  .progress-box .figure {
+    flex: 1;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 10px;
+  }
+  
+  .sentence-task {
+    height: 350px;
+    font-size: 20px;
+    margin: 100px;
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: left;
+    white-space: pre-wrap;
+  }
+  
+  .sentence, .current-input, .current-result, .finished-input, .finished-result {
+    height: 30px;
+    margin-bottom: 5px;
+    padding: 4px;
+    padding-left: 20px;
+    color: #47A5C7;
+  }
+
+  .sentence-task .sentence2, .current-input2, .current-result2, .finished-input2, .finished-result2 {
+    height: 350px;
+    margin-bottom: 5px;
+    padding: 4px;
+    padding-left: 20px;
+    color: #47A5C7;
+  }
+
+  .finished-result {
+    border-radius: 30px;
+    color: black;
+  }
+  
+  .finished-input {
+    background-color: #828282;
+    color: #fff;
+    border-radius: 30px;
+    margin-bottom: 12px;
+  }
+  
+  .current-result {
+    background-color: white;
+    color: black;
+    border-radius: 30px;
+  }
+  
+  .current-input {
+    background-color: white;
+    color: black;
+    border-radius: 30px;
+    margin-bottom: 12px;
+    align-items: center;
+  }
+  
+  .default {
+    color: gray;
+  }
+  
+  .different {
+    color: #f00;
+  }
+  
+  .done {
+    color: #000;
+  }
+  
+  #cursor {
+    width: 4px;
+    height: 24px;
+  }
+  
+  .HeaderStyle {
+    width: 100%;
+    background: white;
+    height: 80px;
+    font-size: 16px;
+    border-bottom: 2px solid #eeeeee;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    color: gray;
+  }
+  
+  .HeaderTitle {
+    -webkit-box-flex: 20;
+        -ms-flex: 20;
+            flex: 20;
+  }
+  
+  .Progress {
+    -webkit-box-flex: 40;
+        -ms-flex: 40;
+            flex: 40;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  
+  .LanguageSelect {
+    -webkit-box-flex: 40;
+        -ms-flex: 40;
+            flex: 40;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  
+  .Circle {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: gray;
+    color: white;
+    font-size: 30px;
+  }
+  
+  .CircleFocussed {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: pink;
+    color: white;
+    font-size: 30px;
+  }
+  
+  .BodyContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 70vh;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  
+  .Body {
+    width: 75%;
+    height: 60vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    border: 3px solid gray;
+    border-radius: 30px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  
+  .WordsList {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin: 0 20px 0 20px;
+    background: #7bc5c5;
+    border: 3px solid #7bc5c5;
+    border-radius: 50px;
+    -webkit-box-flex: 20;
+        -ms-flex: 20;
+            flex: 20;
+  }
+  
+  .WordCellFocused {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    height: 90%;
+    border: 3px solid white;
+    border-radius: 10px;
+  }
+  
+  .WordCell {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    height: 100%;
+  }
+  
+  .Word {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    font-size: 1.5em;
+    color: white;
+  }
+  
+  .ContentStatusBarContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-flex: 10;
+        -ms-flex: 10;
+            flex: 10;
+  }
+  
+  .KeyboardZone {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-flex: 80;
+        -ms-flex: 80;
+            flex: 80;
+  }
+  
+  .KeyboardStyle {
+    margin: auto;
+    display: block;
+    width: 50em;
+    height: 18em;
+  }
+  
+  .StatusBarElem {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    height: 100%;
+  }
+  
+  .StatueBarElem {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 100%;
+  }
+  
+  .ProgressBarWrapper {
+    display: block;
+    width: 60%;
+  }
+  
+  .notes {
+    width: 85%;
+    height: 900px;
+    resize: none;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #e0e0e0;
+    line-height: 40px;
+    background-attachment: local;
+    background-image: linear-gradient(to right, white 10px, transparent 10px), linear-gradient(to left, white 10px, transparent 10px), repeating-linear-gradient(white, white 38px, #000000 40px);
+    padding: 8px 10px;
+  }
+  
+  #script-add-form {
+    display: inline-block;
+    width: 70%;
+    border-right: 2px solid #e0e0e0;
+    border-left: 1px solid #e0e0e0;
+  }
+  
+  #script-title-form {
+    width: 85%;
+    height: 75px;
+    font-size: 25px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  #script-offbutton-form {
+    position: relative;
+    padding: 10px 40px;
+    margin: 0px 10px 10px 0px;
+    border-radius: 30px;
+    border: none;
+    font-size: 18px;
+    color: #FFF;
+    background: #828282;
+    outline: none;
+    text-decoration: none;
+  }
+  
+  #script-onbutton-form {
+    position: relative;
+    padding: 10px 40px;
+    margin: 0px 10px 10px 0px;
+    border-radius: 30px;
+    border: none;
+    font-size: 18px;
+    color: #FFF;
+    background: #EDC5C5;
+    outline: none;
+    text-decoration: none;
+  }
+  
+  .ListForm {
+    display: inline-block;
+    width: 70%;
+  }
+  
+  .ListBody {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    border: 3px solid #bdbdbd;
+    border-radius: 0px 30px 30px 30px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    margin-bottom: 48px;
+  }
+  
+  .NavyTab {
+    width: 30%;
+    height: 10vh;
+    border: 3px solid #BDBDBD;
+    border-bottom: 0px;
+    border-radius: 30px 30px 0px 0px;
+    float: left;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  
+  .NavyButton {
+    width: 100%;
+    height: 100%;
+    background-color: #FFF;
+    border: none;
+    border-radius: 30px 30px 0px 0px;
+    font-size: 25px;
+    font-weight: bold;
+    color: #828282;
+  }
+  
+  .NavyButton:hover {
+    width: 100%;
+    height: 100%;
+    background-color: #FFF;
+    border: none;
+    border-radius: 30px 30px 0px 0px;
+    font-size: 25px;
+    font-weight: bold;
+    color: #7BC5C5;
+  }
+  
+  .Line {
+    width: 1%;
+    height: 100%;
+    background-color: #bdbdbd;
+    transform: rotate();
+  }
+  
+  .SearchTab {
+    background-image: url(MagnifyingGlass.png);
+    background-repeat: no-repeat;
+    background-position: 20px center;
+    background-size: 20px;
+    outline: none;
+    width: 30%;
+    height: 6vh;
+    border: 1px solid #bdbdbd;
+    border-radius: 20px;
+    float: right;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    padding-left: 50px;
+  }
+  
+  .TabSetting {
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  
+  .ScriptList {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: flex-start;
+  }
+  .ScriptList .ScriptListItem {
+    height: 2.2rem;
+    font-size: 1.5rem;
+    list-style: none;
+    padding-left: 0px;
+    color: #47A5C7;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .result-box {
+    position: absolute;
+    top: 100px;
+    width: 100%;
+    height: 70%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  
+  .result-box2 {
+    width: 100%;
+    height: 70%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  
+  #result-text {
+    font-size: 30px;
+  }
+  
+  #type-speed {
+    font-size: 48px;
+    color: #47A5C7;
+    margin-top: 8px;
+    margin-bottom: 40px;
+    font-weight: 500;
+  }
+  
+  .recommend-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 100%;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    list-style-type: none;
+  }
+  
+  .recommend-list #script-link {
+    text-decoration: none;
+  }
+  
+  .recommend-list #recommend-item {
+    font-size: 35px;
+    font-weight: 600;
+    list-style: none;
+    padding-left: 0px;
+    color: #47A5C7;
+    margin-bottom: 6px;
+  }
+  /*# sourceMappingURL=main.css.map */
+  
