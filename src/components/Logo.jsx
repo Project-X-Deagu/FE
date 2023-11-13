@@ -6,7 +6,6 @@ export const SubButton = styled.button`
   font-weight: bold;
   font-size: 16px;
   background-color: transparent;
-  /* background-color: white; */
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -16,8 +15,6 @@ export const SubButton = styled.button`
 
   &:hover {
     opacity: 1;
-    //background-color: var(--bg-blue);
-    //background-color: #2626263a;
     color: var(--bg-blue);
   }
 
@@ -27,7 +24,6 @@ export const SubButton = styled.button`
 export const LogoArea = styled.div`
   cursor: pointer;
   background-color: var(--bg-gray);
-  /* background-color: white; */
   width: 100%;
   height: 60px;
   display: flex;
@@ -37,14 +33,12 @@ export const LogoArea = styled.div`
   text-align: center;
   font-size: 30px;
   font-weight: bold;
-  /* margin: 30px auto; */
 
   div {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    //transition: transform 0.8s ease-in-out;
   }
 
   img {

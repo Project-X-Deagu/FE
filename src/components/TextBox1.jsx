@@ -4,16 +4,16 @@ import axios from "axios";
 
 export const StyledTextArea = styled.textarea`
   background-color: transparent;
-  width: calc(70% - 10px);
-  min-width: 100px;
-  max-width: 700px;
+  width: 90%;
+  min-width: 200px;
+  max-width: 750px;
   height: 25px;
   resize: none;
   overflow: hidden;
   border: 2px solid black;
   border-radius: 20px;
   outline: none;
-  margin: 10px 0;
+  margin: 5px 0;
   padding: 10px 25px;
   font-family: "D2Coding", sans-serif;
   font-weight: normal;
@@ -101,35 +101,48 @@ export const TextBox1 = ({ onKeyPress }) => {
     <div
       style={{
         display: "flex",
-        flexDirection: "column",
+        flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
-        position: "relative",
-        margin: "0 auto",
+        marginTop: "150px",
       }}
     >
-      <StyledTextArea
-        name="showText"
-        value={showText}
-        onChange={() => {}}
-        autoFocus
-        readOnly
+      <ImgButton
+        src="left-arrow.png"
+        alt="Prev"
+        onClick={handleImgButtonClick}
+        style={{ marginRight: "10px" }}
       />
-      <StyledTextArea
-        name="inputText"
-        value={inputText}
-        onChange={handleInputChange}
-        onKeyDown={handleKeyDown}
-        autoFocus
-      />
-      <div style={{ display: "flex", alignItems: "center" }}>
-        <ImgButton
-          src="arrow.png"
-          alt="Next"
-          onClick={handleImgButtonClick}
-          style={{ marginLeft: "10px" }}
+      <div
+        style={{
+          // display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <StyledTextArea
+          name="showText"
+          value={showText}
+          onChange={() => {}}
+          autoFocus
+          readOnly
+          style={{ marginBottom: "25px" }}
+        />
+        <StyledTextArea
+          name="inputText"
+          value={inputText}
+          onChange={handleInputChange}
+          onKeyDown={handleKeyDown}
+          autoFocus
         />
       </div>
+      <ImgButton
+        src="right-arrow.png"
+        alt="Next"
+        onClick={handleImgButtonClick}
+        style={{ marginLeft: "25px" }}
+      />
     </div>
   );
 };

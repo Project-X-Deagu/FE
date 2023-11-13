@@ -4,18 +4,17 @@ import axios from "axios";
 
 export const StyledTextArea = styled.textarea`
   background-color: transparent;
-  //background-color: white;
   width: 70%;
   min-width: 200px;
-  max-width: 750px;
+  max-width: 850px;
   height: auto;
-  min-height: 350px;
+  min-height: 420px;
   resize: none;
   //border: none;
   border: 2px solid black;
-  border-radius: 20px;
+  border-radius: 15px;
   outline: none;
-  margin-top: 50px;
+  margin-top: 10px;
   padding: 15px 25px;
   font-family: "D2Coding", sans-serif;
   font-size: 22px;
@@ -28,10 +27,9 @@ export const StyledTextArea = styled.textarea`
 
 export const ImgButton = styled.img`
   cursor: pointer;
-  width: 45px;
+  width: 40px;
   height: 40px;
-  margin-bottom: 170px;
-  margin-left: 10px;
+  margin: 0 25px 200px 25px;
 `;
 
 export const TextBox2_PYTHON = ({ onKeyPress }) => {
@@ -96,6 +94,11 @@ export const TextBox2_PYTHON = ({ onKeyPress }) => {
 
   return (
     <div>
+      <ImgButton
+        src="left-arrow.png"
+        alt="Prev"
+        onClick={handleImgButtonClick}
+      />
       <StyledTextArea
         value={text}
         onChange={handleInputChange}
@@ -103,7 +106,11 @@ export const TextBox2_PYTHON = ({ onKeyPress }) => {
         // rows={1} // 한 줄로 인식하도록 설정
         autoFocus
       />
-      <ImgButton src="arrow.png" alt="Next" onClick={handleImgButtonClick} />
+      <ImgButton
+        src="right-arrow.png"
+        alt="Next"
+        onClick={handleImgButtonClick}
+      />
     </div>
   );
 };

@@ -6,10 +6,10 @@ import { TextBox2_JAVA } from "./TextBox2_JAVA";
 import { TextBox2_PYTHON } from "./TextBox2_PYTHON";
 
 export const StyledTextBoxArea = styled.div`
-  //background-color: orange;
+  /* background-color: orange; */
   width: 100%;
-  height: auto;
-  min-height: 400px;
+  height: 300px;
+  min-height: 300px;
   text-align: center;
   margin-top: 20px;
   display: fixed;
@@ -27,9 +27,7 @@ export const TextBoxArea = ({ selectedCategory, handleKeyPress }) => {
       {selectedCategory === "PYTHON" && (
         <TextBox2_PYTHON onKeyPress={handleKeyPress} />
       )}
-      {selectedCategory === "C" && (
-        <TextBox2_C onKeyPress={handleKeyPress} />
-      )}
+      {selectedCategory === "C" && <TextBox2_C onKeyPress={handleKeyPress} />}
     </StyledTextBoxArea>
   );
 };
