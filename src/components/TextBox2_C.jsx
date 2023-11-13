@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback, useRef } from "react";
 import styled from "styled-components";
 import axios from "axios";
 
-import Sentence from "./Sentence2";
+import Sentence from "./Sentence";
 import useSound from "use-sound";
 import keySoundAsset from "../mechanicalKeyboard.mp3";
 import { KoreanInputHelper, inko } from "../helpers/KoreanInputHelper";
@@ -47,7 +47,7 @@ export const ImgButton = styled.img`
 
 export const TextBox2_C = ({ onKeyPress }) => {
   const [text, setText] = useState(
-    "TEST SENTENCE"
+    "void searchWord(const struct Dictionary *dictionary, const char *word) {\n    int found = 0;\n    for (int i = 0; i < dictionary->count; i++) {\n        if (strcmp(dictionary->words[i].word, word) == 0) {\n            printf(\"mean: %s\n\", dictionary->words[i].meaning);\n            found = 1;\n            break;\n        }\n    }\n    if (!found) {\n        printf(\"can\'t find\");\n    }\n}"
   );
   const [list, setList] = useState([]);
   const getRandom = (min, max) => Math.floor(Math.random() * (max - min) + min);
@@ -74,7 +74,7 @@ export const TextBox2_C = ({ onKeyPress }) => {
   const [finishedInput, setFinishedInput] = useState("");
   const [currentResult, setCurrentResult] = useState("");
   const [currentInput, setCurrentInput] = useState("");
-  const [inProgress, setInProgress] = useState(true);
+  const [inProgress, setInProgress] = useState(false);
 
   const onKeyDown = useCallback(
     (event) => {
@@ -97,7 +97,7 @@ export const TextBox2_C = ({ onKeyPress }) => {
         setUserInput("");
         setKoreanBuffer("");
         setCurrentInput("");
-        setText(list[step.current + 1]);
+        setText(list[step.current + 1].sentence);
         setCurrentResult(text);
         flag = true;
         step.current = step.current + 1;
@@ -156,11 +156,11 @@ export const TextBox2_C = ({ onKeyPress }) => {
   return (
     <div className="sentence-task">
       <Sentence
-        type="current-result2"
+        type="current-result"
         sentence={currentResult}
         input={currentInput}
       />
-      <Sentence type="current-input2" sentence={currentInput} />
+      <Sentence type="current-input" sentence={currentInput} />
     </div>
   );
 
