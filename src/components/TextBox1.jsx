@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import EngTyping, { getRandomItem } from "./EngTyping";
+import axios from "axios"
 
 export const StyledTextArea = styled.textarea`
   background-color: transparent;
@@ -38,7 +39,16 @@ export const ImgButton = styled.img`
 `;
 
 export const TextBox1 = ({ onKeyPress }) => {
-  const [text, setText] = useState(() => getRandomItem());
+  const [list, setList] = useState([]);
+  const [text, setText] = useState("타자 연습 전 테스트 문장입니다.");
+  const getRandom = (min, max) => Math.floor(Math.random() * (max - min) + min);
+
+  useEffect(() => {
+    axios.get('/api/korean').then((res) => {
+      setList(res.data)
+      console.log(res)
+    })
+  }, [])
 
   const handleInputChange = (e) => {
     const value = e.target.value;
@@ -85,7 +95,7 @@ export const TextBox1 = ({ onKeyPress }) => {
   };
 
   const handleImgButtonClick = () => {
-    setText(getRandomItem());
+    setText(list[getRandom(0, 50)].sentence);
   };
 
   return (
@@ -104,6 +114,7 @@ export const TextBox1 = ({ onKeyPress }) => {
         onKeyDown={handleKeyDown}
         autoFocus
       />
+      <ImgButton src="arrow.png" alt="Next" onClick={handleImgButtonClick} />
       {/* <ImgButton
         src="green-check.png"
         alt="Next"
