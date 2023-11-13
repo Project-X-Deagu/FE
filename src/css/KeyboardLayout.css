@@ -1,10 +1,3 @@
-/* KeyboardLayout.css */
-
-.keyboard-key.pressed {
-  background-color: var(--bg-blue); /* 원하는 눌린 키 스타일 지정 */
-  color: white; /* 키 텍스트 색상 지정 */
-}
-
 .keyboard-layout {
   /* width: 600px;
   height: 500px; */
@@ -28,6 +21,7 @@
   margin-bottom: 20px;
 }
 
+/* 일반 키 */
 .keyboard-key {
   width: 30px;
   height: 30px;
@@ -44,6 +38,11 @@
   transition: background 0.2s;
 }
 
+.keyboard-key.pressed {
+  background-color: var(--bg-blue); /* 원하는 눌린 키 스타일 지정 */
+  color: white; /* 키 텍스트 색상 지정 */
+}
+
 .keyboard-key:hover {
   background: #d9d9d9;
 }
@@ -52,4 +51,124 @@
   background: var(--bg-blue);
 }
 
-/* 원하는 스타일을 여기에 추가하세요 */
+/* 스페셜 키 */
+
+/* 스페이스바 */
+.space-key {
+  width: 400px;
+  height: 30px;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  background: white;
+  border-radius: 4px;
+  margin: 2px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s;
+}
+
+.space-key.pressed {
+  background-color: var(--bg-blue); /* 원하는 눌린 키 스타일 지정 */
+  color: white; /* 키 텍스트 색상 지정 */
+}
+
+.space-key:hover {
+  background: #d9d9d9;
+}
+
+.space-key:active {
+  background: var(--bg-blue);
+}
+
+/* 1.5 - TAB, Backspace */
+.tabnback-key {
+  width: 60px;
+  height: 30px;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  background: white;
+  border-radius: 4px;
+  margin: 2px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s;
+}
+
+.tabnback-key.pressed {
+  background-color: var(--bg-blue); /* 원하는 눌린 키 스타일 지정 */
+  color: white; /* 키 텍스트 색상 지정 */
+}
+
+.tabnback-key:hover {
+  background: #d9d9d9;
+}
+
+.tabnback-key:active {
+  background: var(--bg-blue);
+}
+
+/* 2 - Capslock, Enter */
+.capsenter-key {
+  width: 80px;
+  height: 30px;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  background: white;
+  border-radius: 4px;
+  margin: 2px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s;
+}
+
+.capsenter-key.pressed {
+  background-color: var(--bg-blue); /* 원하는 눌린 키 스타일 지정 */
+  color: white; /* 키 텍스트 색상 지정 */
+}
+
+.capsenter-key:hover {
+  background: #d9d9d9;
+}
+
+.capsenter-key:active {
+  background: var(--bg-blue);
+}
+
+/* 2.5 - Shift */
+.shift-key {
+  width: 100px;
+  height: 30px;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  background: white;
+  border-radius: 4px;
+  margin: 2px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s;
+}
+
+.shift-key.pressed {
+  background-color: var(--bg-blue); /* 원하는 눌린 키 스타일 지정 */
+  color: white; /* 키 텍스트 색상 지정 */
+}
+
+.shift-key:hover {
+  background: #d9d9d9;
+}
+
+.shift-key:active {
+  background: var(--bg-blue);
+}
