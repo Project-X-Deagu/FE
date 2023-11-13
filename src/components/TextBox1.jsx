@@ -6,7 +6,7 @@ export const StyledTextArea = styled.textarea`
   background-color: transparent;
   width: 90%;
   min-width: 200px;
-  max-width: 750px;
+  max-width: 800px;
   height: 25px;
   resize: none;
   overflow: hidden;
