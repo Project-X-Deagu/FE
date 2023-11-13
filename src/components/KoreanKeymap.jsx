@@ -33,7 +33,7 @@ export const KoreanKeymap = () => {
     0: ")",
     "-": "_",
     "=": "+",
-    "₩": "~",
+    "`": "~",
     "[": "{",
     "]": "}",
     "\\": "|",
@@ -149,10 +149,10 @@ export const KoreanKeymap = () => {
       <div className="keyboard-row">
         <div
           className={`keyboard-key ${
-            (pressedKeys.has("~") || pressedKeys.has("₩")) && "pressed"
+            (pressedKeys.has("~") || pressedKeys.has("`")) && "pressed"
           }`}
         >
-          {determineKeyToDisplay("₩")}
+          {determineKeyToDisplay("`")}
         </div>
         <div
           className={`keyboard-key ${
