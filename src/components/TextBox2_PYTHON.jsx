@@ -91,7 +91,7 @@ export const TextBox2_PYTHON = ({ onKeyPress }) => {
   };
 
   const handleImgButtonClick = () => {
-    setText(list[getRandom(0, 4)].sentence);
+    setText(list[getRandom(4, 9)]);
   };
 
   return (
@@ -103,7 +103,7 @@ export const TextBox2_PYTHON = ({ onKeyPress }) => {
         // rows={1} // 한 줄로 인식하도록 설정
         autoFocus
       />
-      {/* <ImgButton src="arrow.png" alt="Next" onClick={handleImgButtonClick} /> */}
+      <ImgButton src="arrow.png" alt="Next" onClick={handleImgButtonClick} />
     </div>
   );
 };
