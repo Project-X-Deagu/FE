@@ -37,7 +37,11 @@ function Main() {
     switch (selectedCategory) {
       case "한글":
         return <KoreanKeymap keyColor={keyColor} />;
-      case "English":
+      case "JAVA":
+        return <Keymap keyColor={keyColor} />;
+      case "PYTHON":
+        return <Keymap keyColor={keyColor} />;
+      case "C":
         return <Keymap keyColor={keyColor} />;
       // Add more cases for other categories
       default:

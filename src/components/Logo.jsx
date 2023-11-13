@@ -120,7 +120,7 @@ export const Logo = ({ onLogoHover, onCategorySelect }) => {
               isVisible={isHovered || isClicked}
               onClick={(e) => {
                 e.stopPropagation();
-                handleCategoryClick("English");
+                handleCategoryClick("JAVA");
               }}
             >
               Java
@@ -129,7 +129,7 @@ export const Logo = ({ onLogoHover, onCategorySelect }) => {
               isVisible={isHovered || isClicked}
               onClick={(e) => {
                 e.stopPropagation();
-                handleCategoryClick("English");
+                handleCategoryClick("PYTHON");
               }}
             >
               Python
@@ -138,7 +138,7 @@ export const Logo = ({ onLogoHover, onCategorySelect }) => {
               isVisible={isHovered || isClicked}
               onClick={(e) => {
                 e.stopPropagation();
-                handleCategoryClick("English");
+                handleCategoryClick("C");
               }}
             >
               C

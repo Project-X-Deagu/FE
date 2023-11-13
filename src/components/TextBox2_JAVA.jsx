@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import EngTyping, { getRandomItem } from "./EngTyping";
+import axios from "axios";
 
 // Eng 버전
 export const StyledTextArea = styled.textarea`
@@ -35,8 +36,17 @@ export const ImgButton = styled.img`
   margin-left: 10px;
 `;
 
-export const TextBox2 = ({ onKeyPress }) => {
-  const [text, setText] = useState("");
+export const TextBox2_JAVA = ({ onKeyPress }) => {
+  const [text, setText] = useState("TEST SENTENCE");
+  const [list, setList] = useState([]);
+  const getRandom = (min, max) => Math.floor(Math.random() * (max - min) + min);
+
+  useEffect(() => {
+    axios.get('/api/english/java').then((res) => {
+      setList(res.data)
+      console.log(res)
+    })
+  }, [])
 
   const handleInputChange = (e) => {
     const value = e.target.value;
@@ -81,7 +91,7 @@ export const TextBox2 = ({ onKeyPress }) => {
   };
 
   const handleImgButtonClick = () => {
-    setText(getRandomItem());
+    setText(list[getRandom(0, 4)].sentence);
   };
 
   return (
