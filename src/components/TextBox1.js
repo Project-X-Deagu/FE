@@ -117,14 +117,20 @@ export const TextBox1 = ({ onKeyPress }) => {
     };
   }, [onKeyDown]);
 
+  const sentences = list
+    .slice(step.current + 1, step.current + 5)
+    .map((item, index) => <Sentence sentence={item.sentence} key={index} />);
+
   return (
     <div className="sentence-task">
+      <Sentence type="finished-input" sentence={finishedInput} />
       <Sentence
         type="current-result"
         sentence={currentResult}
         input={currentInput}
       />
       <Sentence type="current-input" sentence={currentInput} />
+      <div className="rest">{sentences}</div>
     </div>
   );
 };

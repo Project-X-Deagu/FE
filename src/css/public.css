@@ -51,6 +51,11 @@ body {
 
 .TextBox {
   text-align: center;
-  font-size: 25px;
-  line-height: 1.5;
+}
+
+.half_HL {
+  background: linear-gradient(to top, #FFE400 50%, transparent 50%);
+  justify-content: center;
+  text-align: center;
+  font-size: 40px;
 }

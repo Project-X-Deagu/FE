@@ -2,7 +2,7 @@
     position: absolute;
     top: 100px;
     width: 100%;
-    height: 50%;
+    height: 60%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,9 +18,9 @@
   .practice-box {
     width: 70%;
     flex: 1;
-    border: 2px solid #BDBDBD;
+    border: 2.5px solid black;
     border-radius: 24px;
-    margin-top: 150px;
+    margin-top: 100px;
   }
   
   .practice-info {
@@ -86,7 +86,7 @@
   
   .sentence-task {
     height: 350px;
-    font-size: 20px;
+    font-size: 24px;
     margin: 100px;
     margin-left: 5%;
     margin-right: 5%;
@@ -96,10 +96,22 @@
   
   .sentence, .current-input, .current-result, .finished-input, .finished-result {
     height: 30px;
-    margin-bottom: 5px;
-    padding: 4px;
-    padding-left: 20px;
-    color: #47A5C7;
+    margin-bottom: 12px;
+    padding: 6px;
+    padding-left: 17px;
+    color: gray;
+  }
+
+  .rest {
+    border: 1.5px solid;
+    border-color: red;
+    outline: none;
+    background-color: white;
+    color: black;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    margin-top: 60px;
+    align-items: center;
   }
 
   .sentence-task .sentence2, .current-input2, .current-result2, .finished-input2, .finished-result2 {
@@ -116,28 +128,33 @@
   }
   
   .finished-input {
-    background-color: #828282;
-    color: #fff;
-    border-radius: 30px;
+    background-color: white;
+    color: gray;
+    border-radius: 8px;
     margin-bottom: 12px;
+    font-size: 19px;
+    margin-left: 15px;
   }
   
   .current-result {
-    background-color: white;
+    background-color: #4b89dc;
     color: black;
-    border-radius: 30px;
+    border-radius: 8px;
   }
   
   .current-input {
+    border: 1.5px solid;
+    border-color: #4b89dc;
+    outline: none;
     background-color: white;
     color: black;
-    border-radius: 30px;
+    border-radius: 8px;
     margin-bottom: 12px;
     align-items: center;
   }
   
   .default {
-    color: gray;
+    color: white;
   }
   
   .different {
