@@ -120,117 +120,24 @@ export const TextBox1 = ({ onKeyPress }) => {
     };
   }, [onKeyDown]);
 
+  const sentences = list
+  .slice(step.current + 1, step.current + 5)
+  .map((item, index) => <Sentence sentence={item.sentence} key={index} />);
+  
   return (
     <div className="sentence-task">
+      <Sentence type="finished-input" sentence={finishedInput} />
       <Sentence
         type="current-result"
         sentence={currentResult}
         input={currentInput}
       />
       <Sentence type="current-input" sentence={currentInput} />
+      <div className="rest">
+        {sentences}
+      </div>
     </div>
   );
 }
 
 export default TextBox1;
-  /* const handleInputChange = (e) => {
-    const value = e.target.value;
-    setInputText(value);
-  };
-
-  const handleKeyDown = (e) => {
-    onKeyPress(e.key);
-
-    if (e.key === "Tab") {
-      e.preventDefault();
-
-      const cursorPosition = e.target.selectionStart;
-      const selectionEnd = e.target.selectionEnd;
-
-      const lineStart = inputText.lastIndexOf("\n", cursorPosition - 1) + 1;
-      const lineEnd = inputText.indexOf("\n", cursorPosition);
-
-      const textBeforeLine = inputText.substring(0, lineStart);
-      const textInLine = inputText.substring(
-        lineStart,
-        lineEnd !== -1 ? lineEnd : inputText.length
-      );
-      const textAfterLine = inputText.substring(
-        lineEnd !== -1 ? lineEnd : inputText.length
-      );
-
-      const indentedTextInLine =
-        textInLine.substring(0, cursorPosition - lineStart) +
-        " ".repeat(4) +
-        textInLine.substring(cursorPosition - lineStart);
-
-      const indentedText = textBeforeLine + indentedTextInLine + textAfterLine;
-
-      setInputText(indentedText);
-
-      e.target.setSelectionRange(cursorPosition + 4, cursorPosition + 4);
-    }
-
-    if (e.key === "Enter") {
-      e.preventDefault();
-      handleImgButtonClick();
-    }
-  };
-
-  const handleImgButtonClick = () => {
-    if (list.length > 0) {
-      setShowText(list[getRandom(0, 51)].sentence);
-      setInputText("");
-    }
-  };
-
-  return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "center",
-        marginTop: "150px",
-      }}
-    >
-      <ImgButton
-        src="left-arrow.png"
-        alt="Prev"
-        onClick={handleImgButtonClick}
-        style={{ marginRight: "10px" }}
-      />
-      <div
-        style={{
-          // display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <StyledTextArea
-          name="showText"
-          value={showText}
-          onChange={() => {}}
-          autoFocus
-          readOnly
-          style={{ marginBottom: "25px" }}
-        />
-        <StyledTextArea
-          name="inputText"
-          value={inputText}
-          onChange={handleInputChange}
-          onKeyDown={handleKeyDown}
-          autoFocus
-        />
-      </div>
-      <ImgButton
-        src="right-arrow.png"
-        alt="Next"
-        onClick={handleImgButtonClick}
-        style={{ marginLeft: "25px" }}
-      />
-    </div>
-  );
-};
-*/

@@ -60,10 +60,11 @@ function Main() {
         onLogoHover={handleCategoryHover}
         onCategorySelect={handleCategorySelect}
       />
-      <div className = "TextBox">
-        <br></br>
-        <br></br>
-        {selectedCategory}
+      <div class="TextBox">
+        <span class="half_HL">
+          <br></br>
+          {selectedCategory}
+        </span>
       </div>
       {/* 카테고리 미선택 */}
       {!selectedCategory && <TypingEffect></TypingEffect>}
