@@ -72,10 +72,7 @@ export const TextBox1 = ({ onKeyPress }) => {
       playKeyPress();
       dispatch(incrementTypeCount());
 
-      if (
-        event.code === "Enter" ||
-        userInput.length >= showText.length
-      ) {
+      if (event.code === "Enter" || userInput.length >= showText.length) {
         if (userInput.length < showText.length) return;
         setFinishedResult(showText);
         setFinishedInput(userInput);
@@ -130,10 +127,10 @@ export const TextBox1 = ({ onKeyPress }) => {
       <Sentence type="current-input" sentence={currentInput} />
     </div>
   );
-}
+};
 
 export default TextBox1;
-  /* const handleInputChange = (e) => {
+/* const handleInputChange = (e) => {
     const value = e.target.value;
     setInputText(value);
   };

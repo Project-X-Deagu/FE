@@ -22,7 +22,7 @@ export const slice = createSlice({
       state.wrongCharacters = 0;
       state.typeCount = 0;
       state.typeSpeed = 0;
-      state.title = "",
+      state.title = "";
       state.wrongTyping = {};
     },
     incrementProgressPercent: (state, action) => {
@@ -62,16 +62,17 @@ export const {
   incrementTypeCount,
   updateTypeSpeed,
   addWrongTyping,
-  updateTitle
+  updateTitle,
 } = slice.actions;
 
 export const selectProgressPercent = (state) =>
   parseInt(state.script.progressPecent) + "%";
 export const selectAccuracyPercent = (state) => {
   const accuracy = parseInt(
-    (((state.script.totalCharacters + state.script.currentCharacters) -
+    ((state.script.totalCharacters +
+      state.script.currentCharacters -
       (state.script.totalWrongCharacters + state.script.wrongCharacters)) /
-      (state.script.totalCharacters+ state.script.currentCharacters)) *
+      (state.script.totalCharacters + state.script.currentCharacters)) *
       100
   );
   return accuracy ? accuracy + "%" : "100%";
