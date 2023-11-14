@@ -30,8 +30,8 @@ const TypingEffect = ({ text, onComplete }) => {
 };
 
 const TypingEffectExample = () => {
-  const titleSentences = ["타자연습 Project-X '", "도도독", "'"];
-  const mainSentences = ["도독..도독", " ", "> 상단에 손을 올려보세요."];
+  const titleSentences = ["너 내 동료가 돼라&#x2757", " ", " ", " ", " "];
+  const mainSentences = [" ", "> 상단에 손을 올려보세요."];
 
   const [isTitleTypingFinished, setTitleTypingFinished] = useState(false);
 
@@ -45,7 +45,7 @@ const TypingEffectExample = () => {
     >
       <h1>
         {isTitleTypingFinished ? (
-          "타자연습 Project-X '도도독'"
+          "DODODOC Typing"
         ) : (
           <TypingEffect
             text={titleSentences.join("")}
