@@ -99,6 +99,11 @@ export const TextBox2_PYTHON = ({ onKeyPress }) => {
           return body.concat("\n");
         }
 
+        if (event.key === "Tab") {
+          key.preventDefault();
+          return body.concat("    ");
+        }
+
         if (event.key.length > 1) return body;
 
         return body.concat(event.key);
