@@ -4,6 +4,8 @@ import { TextBox1 } from "./TextBox1";
 import { TextBox2_C } from "./TextBox2_C";
 import { TextBox2_JAVA } from "./TextBox2_JAVA";
 import { TextBox2_PYTHON } from "./TextBox2_PYTHON";
+import PracticeBox from "../box/PracticeBox"
+import '../css/main.css'
 
 export const StyledTextBoxArea = styled.div`
   /* background-color: orange; */
@@ -19,15 +21,17 @@ export const StyledTextBoxArea = styled.div`
 
 export const TextBoxArea = ({ selectedCategory, handleKeyPress }) => {
   return (
-    <StyledTextBoxArea>
-      {selectedCategory === "한글" && <TextBox1 onKeyPress={handleKeyPress} />}
-      {selectedCategory === "JAVA" && (
-        <TextBox2_JAVA onKeyPress={handleKeyPress} />
-      )}
-      {selectedCategory === "PYTHON" && (
-        <TextBox2_PYTHON onKeyPress={handleKeyPress} />
-      )}
-      {selectedCategory === "C" && <TextBox2_C onKeyPress={handleKeyPress} />}
-    </StyledTextBoxArea>
+    <div className="content">
+      <div className="practice-box">
+        {selectedCategory === "한글" && <TextBox1 onKeyPress={handleKeyPress} />}
+        {selectedCategory === "JAVA" && (
+          <TextBox2_JAVA onKeyPress={handleKeyPress} />
+        )}
+        {selectedCategory === "PYTHON" && (
+          <TextBox2_PYTHON onKeyPress={handleKeyPress} />
+        )}
+        {selectedCategory === "C" && <TextBox2_C onKeyPress={handleKeyPress} />}
+      </div>
+    </div>
   );
 };

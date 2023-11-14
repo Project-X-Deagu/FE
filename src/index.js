@@ -5,12 +5,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Main from "./views/Main";
 import App from "./App";
 
+import { Provider } from 'react-redux';
+import store from './app/store';
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/server" element={<App />} />
-      <Route path="/" element={<Main />} />
-    </Routes>
-  </BrowserRouter>
+  <React.StrictMode>
+      <Provider store={store}>
+        <Main/>
+      </Provider>
+  </React.StrictMode>
 );
